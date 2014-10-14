@@ -20,3 +20,4 @@ specific issue:
 * [API Discoverability](discoverability.md)
 * [Compatibility](compatibility.md)
 * [API Extensions](extensions.md)
+* [Pagination and Filtering](pagination_filtering.md)
