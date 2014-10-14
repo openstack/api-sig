@@ -6,10 +6,10 @@ changes to a public REST API.
 
 See also the topic document on [API discoverability](discoverability).
 
-TODO
-----
+Guidance
+--------
 
-* Take pieces from https://wiki.openstack.org/wiki/APIChangeGuidelines and add
-  them to this topic document, one at a time, in separate patches.
+**TODO** Take pieces from https://wiki.openstack.org/wiki/APIChangeGuidelines
+and add them to this topic document, one at a time, in separate patches.
 
 [discoverability]: discoverability.md

@@ -6,10 +6,10 @@ API expose the URIs and resources to end users in a machine-readable way.
 
 See also the topic document on [compatibility](compatibility).
 
-TODO
-----
+Guidance
+--------
 
-* Add sections that describe a best practice for API discoverability, possibly
-  using JSON-Home, JSONSchema documents, and JSON-HAL.
+**TODO** Add sections that describe a best practice for API discoverability,
+possibly using JSON-Home, JSONSchema documents, and JSON-HAL.
 
 [compatibility]: compatibility.md
