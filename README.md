@@ -7,7 +7,7 @@ conventions, and best practice recommendations.
 
 Interested in contributing to the API conversations? Simply clone this
 repository and follow the [OpenStack code and review submission
-processes](processes).
+processes](https://wiki.openstack.org/wiki/How_To_Contribute).
 
 Guidance
 --------
@@ -20,5 +20,3 @@ specific issue:
 * [API Discoverability](discoverability.md)
 * [Compatibility](compatibility.md)
 * [API Extensions](extensions.md)
-
-[processes]: https://wiki.openstack.org/wiki/How_To_Contribute

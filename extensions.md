@@ -3,7 +3,7 @@ API Extensions
 
 This topic document serves to provide guidance on the topic of API extensions.
 
-See also the topic document on [discoverability](discoverability).
+See also the topic document on [discoverability](discoverability.md).
 
 Guidance
 --------
@@ -15,5 +15,3 @@ OpenStack projects.
 
 **TODO** Add a patch that makes a proposal about whether or not to recommend
 use of API extensions.
-
-[discoverability]: discoverability.md

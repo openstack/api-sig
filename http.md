@@ -6,7 +6,7 @@ by OpenStack APIs as well as what HTTP methods should be supported and
 preferred.
 
 If something is not covered by this document, projects should follow the
-guidelines in [RFC 2616](rfc2616).
+guidelines in [RFC 2616](https://tools.ietf.org/html/rfc2616).
 
 HTTP Response Codes
 -------------------
@@ -47,5 +47,3 @@ Conveying error/fault information to the end user
 **TODO**: We should have a section here that describes the recommended way of
 transmitting error/fault information back to the user, including any guidelines
 on the payload in the response body.
-
-[rfc2616]: https://tools.ietf.org/html/rfc2616

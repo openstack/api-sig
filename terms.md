@@ -1,7 +1,7 @@
 Terms
 =====
 
-As Phil Karlson [once said](hardthings):
+As Phil Karlson [once said](http://martinfowler.com/bliki/TwoHardThings.html):
     
 > There are only two hard things in Computer Science: cache invalidation and
 > naming things.
@@ -24,6 +24,3 @@ made regarding certain terms, and attempts to succinctly define each term.
   compute purposes. The older term ***instance*** that is also by Amazon Web
   Services EC2 API to describe a virtual machine, should *not* be used in
   OpenStack REST APIs.
-
-[processes]: https://wiki.openstack.org/wiki/How_To_Contribute
-[hardthings]: http://martinfowler.com/bliki/TwoHardThings.html
