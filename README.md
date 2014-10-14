@@ -17,4 +17,6 @@ specific issue:
 
 * [Terms](terms.md)
 
+* [HTTP Response Codes](http_response_codes.md)
+
 [processes]: https://wiki.openstack.org/wiki/How_To_Contribute
