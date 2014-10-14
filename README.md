@@ -17,6 +17,7 @@ specific issue:
 
 * [Terms](terms.md)
 * [HTTP Response Codes, Methods, and Standards](http.md)
+* [Naming Conventions](naming.md)
 * [API Discoverability](discoverability.md)
 * [Compatibility](compatibility.md)
 * [API Extensions](extensions.md)
