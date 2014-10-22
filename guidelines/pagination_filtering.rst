@@ -1,7 +1,9 @@
 Pagination and Filtering
 ========================
 
-This topic document serves to provide guidance on how to handle the pagination of large result sets and the best ways to provide filtering capabilities in a project's public REST API.
+This topic document serves to provide guidance on how to handle the
+pagination of large result sets and the best ways to provide filtering
+capabilities in a project's public REST API.
 
 Pagination
 ----------

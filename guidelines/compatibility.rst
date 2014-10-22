@@ -1,10 +1,12 @@
+.. _compatibility:
+
 Compatibility
 =============
 
 This topic document serves to provide guidance on how to handle proposed
 changes to a public REST API.
 
-See also the topic document on [API discoverability](discoverability.md).
+See also the topic document on :ref:`discoverability`.
 
 Guidance
 --------

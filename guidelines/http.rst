@@ -1,3 +1,5 @@
+.. _http:
+
 HTTP Guidelines
 ===============
 
@@ -29,11 +31,11 @@ Failure Codes
 ~~~~~~~~~~~~~
 
 * If the call results in the OpenStack user exceeding his or her quota, the
-  return code should be **403 Forbidden**. Do ***not*** use **413 Request
+  return code should be **403 Forbidden**. Do **not** use **413 Request
   Entity Too Large**.
 
 * For badly formatted requests, the return code should be **400 Bad Request**.
-  Do ***not*** use **422 Unprocessable Entity**.
+  Do **not** use **422 Unprocessable Entity**.
 
 HTTP Methods
 ------------

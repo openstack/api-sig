@@ -7,13 +7,15 @@ OpenStack public REST APIs so that our APIs feel consistent and professional.
 REST API resource names
 -----------------------
 
-* A resource in a REST API is always represented as the plural of an entity that is exposed by the API.
+* A resource in a REST API is always represented as the plural of an entity
+  that is exposed by the API.
 
 * Resource names exposed in a REST API should use all lowercase characters.
 
 * Resource names *may* include hyphens.
 
-* Resource names should *not* include underscores or other punctuation (sole exception is the hyphen).
+* Resource names should *not* include underscores or other punctuation
+  (sole exception is the hyphen).
 
 Fields in an API request or response body
 -----------------------------------------

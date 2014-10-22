@@ -1,9 +1,11 @@
+.. _extensions:
+
 API Extensions
 ==============
 
 This topic document serves to provide guidance on the topic of API extensions.
 
-See also the topic document on [discoverability](discoverability.md).
+See also the topic document on :ref:`discoverability`.
 
 Guidance
 --------
