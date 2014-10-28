@@ -30,4 +30,5 @@ specific issue:
    :glob:
    :maxdepth: 1
 
+   process
    guidelines/*
