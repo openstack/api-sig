@@ -4,6 +4,9 @@
 OpenStack API Working Group
 ===========================
 
+.. NOTE::
+  THIS DOCUMENT IS CURRENTLY A DRAFT ONLY
+
 This document contains the guidelines and rules for OpenStack project
 APIs.
 
