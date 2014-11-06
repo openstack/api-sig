@@ -13,11 +13,14 @@ guidelines in [RFC 2616](https://tools.ietf.org/html/rfc2616).
 HTTP Response Codes
 -------------------
 
-Success Codes
-~~~~~~~~~~~~~
+2xx Success Codes
+~~~~~~~~~~~~~~~~~
 
-* If the API call creates a resource on a server, the return code should be
-  **201 Created**.
+* Synchronous resource creation
+
+ * Response status code must be ``201 Created``
+ * Must return a Location header with the URI of the created resource
+ * Should return a representation of the resource in the body
 
 * If the API call succeeds, but the result of the call has created an
   asynchronous task that will need to be polled to get completion or state
