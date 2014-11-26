@@ -19,11 +19,13 @@ Success Codes
 * If the API call creates a resource on a server, the return code should be
   **201 Created**.
 
-* If the API call succeeds, but the result of the call has created an
-  asynchronous task that will need to be polled to get completion or state
-  information, the return code should be **202 Accepted**, and the body of the
-  request should contain a link that the client can follow in order to get such
-  state information.
+* Asynchronous resource creation
+
+  * Response status code must be ``202 Accepted``
+  * Must return a Location header set to one of the following:
+      * the URI of the resource to be created, if known.
+      * the URI of a status resource that the client can use to query the
+        progress of the asynchronous operation.
 
 * For all other successful calls, the return code should be **200 OK**.
 
