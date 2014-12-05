@@ -17,7 +17,7 @@ If you are interested in contributing to this document, the git repository is
 available at: http://git.openstack.org/cgit/openstack/api-wg/
 
 OpenStack code and review submission processes are described here:
-https://wiki.openstack.org/wiki/How_To_Contribute
+http://docs.openstack.org/infra/manual/developers.html
 
 
 Guidelines
