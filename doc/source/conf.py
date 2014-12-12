@@ -31,7 +31,12 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.todo',
               'sphinx.ext.viewcode',
               'oslosphinx',
+              'yasfb',
              ]
+
+# Feed configuration for yasfb
+feed_base_url = 'http://specs.openstack.org/openstack/api-wg'
+feed_author = 'OpenStack API Working Group'
 
 todo_include_todos = True
 
