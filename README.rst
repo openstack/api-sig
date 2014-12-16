@@ -11,4 +11,4 @@ conventions, and best practice recommendations.
 
 Interested in contributing to the API conversations? Simply clone this
 repository and follow the [OpenStack code and review submission
-processes](https://wiki.openstack.org/wiki/How_To_Contribute).
+processes](http://docs.openstack.org/infra/manual/developers.html).
