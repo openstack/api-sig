@@ -7,6 +7,17 @@ OpenStack API Working Group
 .. NOTE::
   THIS DOCUMENT IS CURRENTLY A DRAFT ONLY
 
+Mission Statement
+-----------------
+
+To improve the developer experience of API users by converging the OpenStack
+API to a consistent and pragmatic RESTful design. The working group creates
+guidelines that all OpenStack projects should follow for new development, and
+promotes convergence of new APIs and future versions of existing APIs.
+
+Preamble
+--------
+
 This document contains the guidelines and rules for OpenStack project
 APIs.
 
