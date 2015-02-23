@@ -30,6 +30,10 @@ HTTP Response Codes
       * the URI of a status resource that the client can use to query the
         progress of the asynchronous operation.
 
+* Synchronous resource deletion
+
+ * Response status code must be ``204 No Content``
+
 * For all other successful calls, the return code should be **200 OK**.
 
 Failure Codes
