@@ -1,0 +1,30 @@
+{
+  "errors": [
+    {
+      "request_id": "1dc92f06-8ede-4fb4-8921-b507601fb59d",
+      "code": "orchestration.create-failed",
+      "status": 418,
+      "title": "The Stack could not be created",
+      "detail": "The Stack could not be created because of error(s) in other parts of the system.",
+      "links": [
+        {
+          "rel": "help",
+          "href": "TODO(sdague): example href"
+        }
+      ]
+    },
+    {
+      "request_id": "d413ea12-dfcd-4009-8fad-229b475709f2",
+      "code": "compute.scheduler.no-valid-host-found",
+      "status": 403,
+      "title": "No valid host found",
+      "detail": "No valid host found for flavor m1.xlarge.",
+      "links": [
+        {
+          "rel": "help",
+          "href": "TODO(sdague): example href"
+        }
+      ]
+    }
+  ]
+}
