@@ -87,13 +87,15 @@ class TestTitles(testtools.TestCase):
 
     def test_template(self):
         files = glob.glob("guidelines/*")
-        for filename in files:
-            self.assertTrue(filename.endswith(".rst"),
-                            "guideline files must use 'rst' extension.")
-            with open(filename) as f:
+        for file in files:
+            self.assertTrue(file.endswith(".rst") or file.endswith(".json"),
+                    "guideline files must use 'rst' or 'json' extension.")
+            with open(file) as f:
                 data = f.read()
 
             spec = docutils.core.publish_doctree(data)
-            self._check_lines_wrapping(filename, data)
-            self._check_no_cr(filename, data)
-            self._check_trailing_spaces(filename, data)
+            self._check_no_cr(file, data)
+            self._check_trailing_spaces(file, data)
+
+            if file.endswith(".rst"):
+                self._check_lines_wrapping(file, data)
