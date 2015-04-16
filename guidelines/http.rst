@@ -46,6 +46,11 @@ Failure Codes
 * For badly formatted requests, the return code should be **400 Bad Request**.
   Do **not** use **422 Unprocessable Entity**.
 
+* If a call is made to a known resource URI, but the HTTP method used for the
+  request is not supported for that resource, the return code should be **405
+  Method Not Allowed**. The response should include the `Allow` header with
+  the list of accepted request methods for the resource.
+
 HTTP Methods
 ------------
 
