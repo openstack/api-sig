@@ -12,6 +12,9 @@ document. Our intent is to move fairly quickly to get published draft
 guidelines so this process reflects a preference for efficiency while
 gathering consensus.
 
+Review process
+--------------
+
 The following process should occur:
 
 1. Minor typo/formatting change updates do not have any minimum time
@@ -55,3 +58,16 @@ The following process should occur:
    * Reviewed and approved by the TC. We are a delegated group from
      the TC so they ultimately get final say on what we are able to
      release.
+
+Proposing a new guideline
+-------------------------
+
+When proposing a new guideline you should start by using the
+:doc:`guideline template <template>` to generate the basic
+structure. Copy the ``template.rst`` file to the ``guidelines`` directory
+with a filename reflecting your new guideline (for example
+``guidelines/errors.rst``), and then follow the instructions within the
+template. Once complete you should follow the `developer workflow`_ and
+the previously stated review process to have your guideline accepted.
+
+.. _developer workflow: http://docs.openstack.org/infra/manual/developers.html

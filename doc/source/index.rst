@@ -42,4 +42,5 @@ specific issue:
    :maxdepth: 1
 
    process
+   template
    guidelines/*
