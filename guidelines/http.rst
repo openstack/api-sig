@@ -8,7 +8,12 @@ by OpenStack APIs as well as what HTTP methods should be supported and
 preferred.
 
 If something is not covered by this document, projects should follow the
-guidelines in [RFC 2616](https://tools.ietf.org/html/rfc2616).
+guidelines in RFCs `7230 <https://tools.ietf.org/html/rfc7230>`_,
+`7231 <https://tools.ietf.org/html/rfc7231>`_,
+`7232 <https://tools.ietf.org/html/rfc7232>`_,
+`7233 <https://tools.ietf.org/html/rfc7233>`_,
+`7234 <https://tools.ietf.org/html/rfc7234>`_, and
+`7235 <https://tools.ietf.org/html/rfc7235>`_.
 
 HTTP Response Codes
 -------------------
