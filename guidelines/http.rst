@@ -37,6 +37,13 @@ HTTP Response Codes
 
 * For all other successful calls, the return code should be **200 OK**.
 
+* If a call is made which attempts to put a resource into a state which it is
+  already in (eg locking an instance which is already locked), the return code
+  should be in the **2xx Successful** range (usually matching the return code
+  which would be given if the state had changed). It is not appropriate to use
+  **409 Conflict** when the resulting state of the resource is as the user
+  requested.
+
 Failure Codes
 ~~~~~~~~~~~~~
 
