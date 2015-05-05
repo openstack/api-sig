@@ -59,6 +59,11 @@ Failure Codes
   Method Not Allowed**. The response should include the `Allow` header with
   the list of accepted request methods for the resource.
 
+* If a call is made which attempts to perform an action on a resource which is
+  already performing that action and therefore the request cannot be fulfilled
+  (eg snapshotting an instance which is already in the process of
+  snapshotting), the return code should be **409 Conflict**.
+
 * A **500 Internal Server Error** should **not** be returned to the user for
   failures due to user error that can be fixed by changing the request on the
   client side.  500 failures should be returned for any error state that cannot
