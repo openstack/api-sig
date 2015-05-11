@@ -93,6 +93,14 @@ Failure Codes
 * For badly formatted requests, the return code should be **400 Bad Request**.
   Do **not** use **422 Unprocessable Entity**.
 
+  * If the API limits the length of a property that is a collection, the return
+    code should be **400 Bad Request** when the request exceeds the length
+    limit. The client should adjust requests to achieve success, and shouldn't
+    expect to repeat the request and have it work. Do **not** use
+    **403 Forbidden** for this case, because this is different than exceeding
+    quota -- for a subsequent request to succeed when quotas are exceeded the
+    server environment must change.
+
 * If a request is made to a known resource URI, but the HTTP method used for
   the request is not supported for that resource, the return code should be
   **405 Method Not Allowed**. The response should include the `Allow` header
