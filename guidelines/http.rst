@@ -141,6 +141,19 @@ should always be supported, and which should be preferred.
   accept missing resource fields as unchanged. This is valid under :rfc:`5789`,
   but makes it possible to lose updates when dealing with lists or sets.
 
+* There can also be confusion on when to use **POST** or **PUT** in the
+  specific instance of creating new resources. **POST** should be used when
+  the URI of the resulting resource is different from the URI to which the
+  request was made and results in the resource having an identifier (the URI)
+  that the server generated. In the OpenStack environment this is the common
+  case. **PUT** should be used for resource creation when the URI to which the
+  request is made and the URI of the resulting resource is the same.
+
+  That is, if the id of the resource being created is known, use **PUT** and
+  **PUT** to the correct URI of the resource. Otherwise, use **POST** and
+  **POST** to a more generic URI which will respond with the new URI of the
+  resource.
+
 * GET method
 
  * GET method should be used only for getting information of resources, and it
