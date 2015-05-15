@@ -83,8 +83,21 @@ largely grouped as follows:
   **409 Conflict** when the resulting state of the resource is as the user
   requested.
 
-Failure Codes
-~~~~~~~~~~~~~
+5xx Server Error Codes
+~~~~~~~~~~~~~~~~~~~~~~
+
+These codes represent that the server, or gateway, has encountered an error
+or is incapable of performing the requested method. They indicate to a
+client that the request has resulted in an error that exists on the
+server side and not with the client.
+
+They should be used to indicate that errors have occurred during the
+request process which cannot be resolved by the client alone. The nature
+of each code in the 5xx series carries a specific meaning and they should
+be fully researched before deploying.
+
+Failure Code Clarifications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * If the request results in the OpenStack user exceeding his or her quota, the
   return code should be **403 Forbidden**. Do **not** use **413 Request
