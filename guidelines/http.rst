@@ -135,6 +135,12 @@ should always be supported, and which should be preferred.
    is the primary mechanism of information retrieval and the focus of almost
    all performance optimizations.**.
 
+HTTP request bodies are theoretically allowed for all methods except TRACE,
+however they are not commonly used except in PUT, POST and PATCH. Because of
+this, they may not be supported properly by some client frameworks and we
+would discourage API methods from accepting request bodies for GET, DELETE,
+TRACE, OPTIONS and HEAD methods.
+
 Conveying error/fault information to the end user
 -------------------------------------------------
 
