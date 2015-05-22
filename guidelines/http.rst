@@ -128,6 +128,13 @@ should always be supported, and which should be preferred.
   accept missing resource fields as unchanged. This is valid under :rfc:`5789`,
   but makes it possible to lose updates when dealing with lists or sets.
 
+* GET method
+
+ * GET method should be used only for getting information of resources, and it
+   should not change resources' state at all because :rfc:`7231` mentions **GET
+   is the primary mechanism of information retrieval and the focus of almost
+   all performance optimizations.**.
+
 Conveying error/fault information to the end user
 -------------------------------------------------
 
