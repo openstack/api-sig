@@ -61,6 +61,12 @@ Requests that return a status code of any of the following are defined
 as cacheable: 200, 203, 204, 206, 300, 301, 404, 405, 410, 414, and
 501 :rfc:`7231#section-6.1` (section 6.1).
 
+A common misconception is that requests issued over a secure HTTP connection
+are not cached for security reasons. In fact, there is no exception made for
+https in the HTTP specification, caching works in exactly the same way as for
+non-encrypted HTTP. Most modern browsers apply the same caching algorithm to
+secure connections.
+
 Most Python HTTP client libraries are extremely conservative on
 caching, so a whole class of completely valid RFC caching won't be
 seen when using these clients. Assuming "it works in the Python
