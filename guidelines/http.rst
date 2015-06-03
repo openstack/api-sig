@@ -35,9 +35,9 @@ HTTP Response Codes
 
  * Response status code must be ``204 No Content``
 
-* For all other successful calls, the return code should be **200 OK**.
+* For all other successful requests, the return code should be **200 OK**.
 
-* If a call is made which attempts to put a resource into a state which it is
+* If a request attempts to put a resource into a state which it is
   already in (eg locking an instance which is already locked), the return code
   should be in the **2xx Successful** range (usually matching the return code
   which would be given if the state had changed). It is not appropriate to use
@@ -47,21 +47,21 @@ HTTP Response Codes
 Failure Codes
 ~~~~~~~~~~~~~
 
-* If the call results in the OpenStack user exceeding his or her quota, the
+* If the request results in the OpenStack user exceeding his or her quota, the
   return code should be **403 Forbidden**. Do **not** use **413 Request
   Entity Too Large**.
 
 * For badly formatted requests, the return code should be **400 Bad Request**.
   Do **not** use **422 Unprocessable Entity**.
 
-* If a call is made to a known resource URI, but the HTTP method used for the
-  request is not supported for that resource, the return code should be **405
-  Method Not Allowed**. The response should include the `Allow` header with
-  the list of accepted request methods for the resource.
+* If a request is made to a known resource URI, but the HTTP method used for
+  the request is not supported for that resource, the return code should be
+  **405 Method Not Allowed**. The response should include the `Allow` header
+  with the list of accepted request methods for the resource.
 
-* If a call is made which attempts to perform an action on a resource which is
-  already performing that action and therefore the request cannot be fulfilled
-  (eg snapshotting an instance which is already in the process of
+* If a request is made which attempts to perform an action on a resource which
+  is already performing that action and therefore the request cannot be
+  fulfilled (eg snapshotting an instance which is already in the process of
   snapshotting), the return code should be **409 Conflict**.
 
 * A **500 Internal Server Error** should **not** be returned to the user for
