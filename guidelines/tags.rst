@@ -234,3 +234,10 @@ combined to build more complex queries. Example::
 
 The above example returns any servers that have the "red" and "blue" tags, plus
 at least one of "green" and "orange".
+
+It is possible to create a request which is self-contradictory. Example::
+
+    GET /servers?tags=red&not-tags=red
+
+This should be treated as a valid request (ie *not* a client error), and should
+return an empty result-set with a 2xx status code.
