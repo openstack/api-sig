@@ -43,4 +43,5 @@ specific issue:
 
    process
    template
+   liaisons
    guidelines/*
