@@ -52,6 +52,12 @@ Failure Codes
   Method Not Allowed**. The response should include the `Allow` header with
   the list of accepted request methods for the resource.
 
+* A **500 Internal Server Error** should **not** be returned to the user for
+  failures due to user error that can be fixed by changing the request on the
+  client side.  500 failures should be returned for any error state that cannot
+  be fixed by a client, and requires the operator of the service to perform
+  some action to fix.
+
 HTTP Methods
 ------------
 
