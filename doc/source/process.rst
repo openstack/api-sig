@@ -60,7 +60,7 @@ The following process should occur:
    item.
 
 4. Once a changeset meets the requirements of #2, it should be frozen by
-   setting Workflow -1 to prevent an accidental merge during the CPL review
+   setting Code-Review -2 to prevent an accidental merge during the CPL review
    period.
 
 5. Once a changeset meets the requirements of #2, #3, and #4, the CPLs have
