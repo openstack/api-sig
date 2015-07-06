@@ -6,26 +6,23 @@
 
 ..
  The title of your guideline should replace the
- "Example Guideline Template"
+ "Example Guideline Category"
 
 ==========================
-Example Guideline Template
+Example Guideline Category
 ==========================
 
-Introduction paragraph -- what does this guideline address? A single
-paragraph of prose that implementors can understand. This paragraph
-should describe the intent and scope of the guideline. The title and
-this first paragraph should be used as the subject line and body of
-the commit message respectively.
+Introduction paragraph -- what does this guideline category address? A single
+paragraph of prose that implementors can understand. This paragraph should
+describe the intent and scope of the guideline. The title and this first
+paragraph should be used as the subject line and body of the commit message
+respectively.
 
 Some notes about using this template:
 
 * Your guideline should be in ReSTructured text, like this template.
 
 * Please wrap text at 79 columns.
-
-* Please do not delete any of the sections in this template.  If you have
-  nothing to say for a whole section, just write: None
 
 * For help with syntax, see http://sphinx-doc.org/rest.html
 
@@ -35,10 +32,22 @@ Some notes about using this template:
 * For help with OpenStack documentation conventions, see
   https://wiki.openstack.org/wiki/Documentation/Conventions
 
-Guidance
-========
+Each file should be a group of related guidelines, such as "HTTP Headers" or
+similar. Each guideline gets its own subheader, and within each section there
+is an overview/introduction, a guidance section, examples, and references. Not
+every guideline will fill in every section. If a section isn't needed for a
+particular guideline, delete it if you're **really** sure it's superfluous.
 
-A detailed description of the guideline that is being suggested.
+Guideline Name
+--------------
+
+A detailed guideline that is being suggested. It should also have an
+introduction if applicable.
+
+Guidance
+********
+
+The actual guidance that the API working group would like to provide.
 
 * The guideline should provide a clear recitation of the actions to be
   taken by implementors.
@@ -48,10 +57,10 @@ A detailed description of the guideline that is being suggested.
 
 * External references should be described by annotations with the
   links to the source material in the References section. (for example,
-  please see RFC 0000[1])
+  please see :rfc:`0000` or this footnote guide [#f1]_)
 
 Examples
-========
+********
 
 A series of examples that demonstrate the proper usage of the guideline
 being proposed. These examples may include, but are not limited to:
@@ -65,21 +74,21 @@ The examples should not include:
 * Code samples designed for implementation.
 
 References
-==========
+**********
 
-A list of the annotated references from the Guidance section and additional
-material that may be relevant to the guideline. For annotated references
-these should follow the form of:
-
-    [1]: https://tools.ietf.org/html/rfc0000
-
-Additional references may be provided in cases where they aid in giving a
-more complete understanding of the guideline. You are not required to have any
-references. Moreover, this guideline should still make sense when your
-references are unavailable. Examples of what you could include are:
+References may be provided in cases where they aid in giving a more complete
+understanding of the guideline. You are not required to have any references.
+Moreover, this guideline should still make sense when your references are
+unavailable. Examples of what you could include are:
 
 * Links to mailing list or IRC discussions
 
 * Links to notes from a summit session
 
 * Links to relevant research, if appropriate
+
+RST supports footnotes in the following format:
+
+.. rubric:: Footnotes
+
+.. [#f1] http://sphinx-doc.org/rest.html#footnotes
