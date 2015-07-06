@@ -22,7 +22,8 @@ The following process should occur:
    one +1 vote other than the approver and no -1.
 
 2. A changeset which adds a new guideline or makes a substantial change
-   to an existing guideline must reach consensus within the API WG.
+   to an existing guideline must reach consensus within the API Working
+   Group (WG).
 
    In the guideline review, consensus means the changeset must be available
    for review in its near final form for at least 2 working days. Minor
@@ -39,10 +40,10 @@ The following process should occur:
 
 3. Once a changeset meets the requirements of #2, the `Cross Project Liaisons
    <https://wiki.openstack.org/wiki/CrossProjectLiaisons#API_Working_Group>`_
-   for the API WG should be engaged on various channels.
+   (CPLs) for the API WG should be engaged on various channels.
 
    1. Review. The CPLs must be added as reviewers to any changeset that has
-   reached consensus.
+   reached consensus by the API WG.
 
    2. The openstack-dev mailing list. An email must be sent to the
    openstack-dev mailing list with the subject "[all][api] New API
@@ -65,8 +66,7 @@ The following process should occur:
 5. Once a changeset meets the requirements of #2, #3, and #4, the CPLs have
    1 week to review it. If there is no review by a CPL, lazy consensus is
    assumed. If there is a -1 review by a CPL that requires an update to the
-   changeset, it does not reset the 1 week the CPLs have to review it. Once
-   consensus it achieved, the changeset is mergable.
+   changeset, it does not reset the 1 week the CPLs have to review it.
 
 6. Once a changeset meets the requirements of #5, it can be merged.
 
