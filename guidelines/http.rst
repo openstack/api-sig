@@ -107,7 +107,10 @@ Failure Codes
   failures due to user error that can be fixed by changing the request on the
   client side.  500 failures should be returned for any error state that cannot
   be fixed by a client, and requires the operator of the service to perform
-  some action to fix.
+  some action to fix. It is also possible that this error can be raised
+  deliberately in case of some detected but unrecoverable error such as failure
+  to communicate with another service component, eg MessageQueueTimeout,
+  IOError caused by a full disk, etc.
 
 HTTP Methods
 ------------
