@@ -118,6 +118,16 @@ HTTP Methods
 **TODO**: Provide guidance on what HTTP methods (PUT/POST/PATCH/DELETE, etc)
 should always be supported, and which should be preferred.
 
+* When choosing how to update a stored resource, **PUT** and **PATCH** imply
+  different semantics. **PUT** sends a full resource representation (including
+  unchanged fields) which will replace the resource stored on the server. In
+  contrast, **PATCH** accepts partial representation which will modify the
+  server's stored resource. :rfc:`5789` does not specify a partial
+  representation format. JSON-patch in :rfc:`6902` specifies a way to send a
+  series of changes represented as JSON. One unstandardized alternative is to
+  accept missing resource fields as unchanged. This is valid under :rfc:`5789`,
+  but makes it possible to lose updates when dealing with lists or sets.
+
 Conveying error/fault information to the end user
 -------------------------------------------------
 
