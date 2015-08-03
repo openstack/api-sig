@@ -28,11 +28,12 @@ made regarding certain terms, and attempts to succinctly define each term.
 
 * **project name** vs. **service type**
 
-  Each OpenStack project has both a "project name" (e.g., Nova, Keystone, etc.)
-  and a "service type" (e.g., Compute, Identity, etc.). Some REST API features
-  (e.g., JSON-Home, API Microversions, etc.) need to expose each project in a
-  request/response.
-  The project *should* be represented with its **service type** because its
-  project name is subject to change (e.g., Neutron was Quantum) and its service
-  type is more stable. The service type should come from "type" of the
-  corresponding OpenStack Identity service catalog entry.
+  Most OpenStack projects have both a "project name" (e.g., Nova, Keystone,
+  etc.) and a "service type" (e.g., Compute, Identity, etc.). Some REST API
+  features (e.g., JSON-Home, API Microversions, etc.) need to expose each
+  project in a request/response.
+  The project *should* be represented with its **service type** if it has both
+  a "project name" and a "service type" because its project name is subject to
+  change (e.g., Neutron was Quantum) and its service type is more stable. The
+  service type should come from "type" of the corresponding OpenStack Identity
+  service catalog entry.
