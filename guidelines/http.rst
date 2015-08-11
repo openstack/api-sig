@@ -138,8 +138,9 @@ should always be supported, and which should be preferred.
   server's stored resource. :rfc:`5789` does not specify a partial
   representation format. JSON-patch in :rfc:`6902` specifies a way to send a
   series of changes represented as JSON. One unstandardized alternative is to
-  accept missing resource fields as unchanged. This is valid under :rfc:`5789`,
-  but makes it possible to lose updates when dealing with lists or sets.
+  accept missing resource fields as unchanged from the server's saved state of
+  the resource. :rfc:`5789` doesn't forbid using PUT in this way, but this
+  method makes it possible to lose updates when dealing with lists or sets.
 
 * GET method
 
