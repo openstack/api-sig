@@ -29,8 +29,7 @@ URL-encoded JSON list. This is less client-friendly because it requires extra
 encoding steps.
 
 The simplest way to allow filtering is to map filterable parameters to query
-parameters. To avoid conflicts, filter parameters are prefixed with ``f_``.
-This is important to be able to filter on fields like ``limit`` and ``marker``.
+parameters.
 Take the sample object::
 
   GET /app/items
@@ -51,7 +50,7 @@ Take the sample object::
 
 To filter on a field, simply add that field and its value to the query.::
 
-  GET /app/items?f_foo=buzz
+  GET /app/items?foo=buzz
   {
     "items": [
       {
@@ -63,14 +62,14 @@ To filter on a field, simply add that field and its value to the query.::
   }
 
 Multiple filters result in an implicit AND, so in our example
-``/app/items?f_foo=buzz&f_baz=quux`` would provide no results.
+``/app/items?foo=buzz&baz=quux`` would provide no results.
 
 **IN** operations are available for single fields, using comma-separated
 options for the field value and colon separation for the ``in``
 operator. The value must be in the list of values provided for the query
 to succeed.::
 
-  GET /app/items?f_foo=in:buzz,bar
+  GET /app/items?foo=in:buzz,bar
   {
     "items": [
       {
@@ -88,21 +87,21 @@ to succeed.::
 
 If values contain commas, they can be quoted similar to CSV escaping. For
 example, a query for the value ``a,bc`` or ``d`` would be
-``?f_foo=in:"a,bc",d``. If values contain double-quotes, those can be
+``?foo=in:"a,bc",d``. If values contain double-quotes, those can be
 backslashed inside quotes. For a value ``a"b"c`` the query would be
-``?f_foo="a\"b\"c"``.
+``?foo="a\"b\"c"``.
 
 For queries that need comparisons other than simple equals, operators are
 supported for membership, inequality, greater-than, greater-than-or-equal,
 less-than, and less-than-or-equal-to. In order, the operators are: ``in``,
 ``neq``, ``gt``, ``gte``, ``lt``, and ``lte``. Simple equality is the default
-operation, and is performed as ``?f_param=foo``.
+operation, and is performed as ``?param=foo``.
 
 They can be used in queries compounded with the values they work on. For
 example, finding objects with a size greater than 8 would be written as
-``?f_size=gt:8`` and would return::
+``?size=gt:8`` and would return::
 
-  GET /app/items?f_size=gt:8
+  GET /app/items?size=gt:8
   {
     "items": [
       {
@@ -113,9 +112,9 @@ example, finding objects with a size greater than 8 would be written as
     ]
   }
 
-Operators must be followed by colons, so the query ``?f_foo=gte`` searches for
+Operators must be followed by colons, so the query ``?foo=gte`` searches for
 the literal string "gte" and searching for "gte:" can be done by quoting the
-value as ``?f_foo="gte:"``.
+value as ``?foo="gte:"``.
 
 **TODO:** Add guidance on a "LIKE" or regex operator to search text.
 
