@@ -1,0 +1,144 @@
+{
+  "liaisons": [
+    {
+      "project": "Barbican",
+      "name": "Douglas Mendizábal",
+      "nick": "redrobot"
+    },
+    {
+      "project": "Ceilometer",
+      "name": "Chris Dent",
+      "nick": "cdent"
+    },
+    {
+      "project": "Cinder",
+      "name": "Alex Meade",
+      "nick": "ameade"
+    },
+    {
+      "project": "Congress",
+      "name": "",
+      "nick": ""
+    },
+    {
+      "project": "Designate",
+      "name": "",
+      "nick": ""
+    },
+    {
+      "project": "Glance",
+      "name": "Stuart McLaren",
+      "nick": "mclaren"
+    },
+    {
+      "project": "Glance",
+      "name": "Nikhil Komawar",
+      "nick": "nikhil_k"
+    },
+    {
+      "project": "Heat",
+      "name": "Ryan Brown",
+      "nick": "ryansb"
+    },
+    {
+      "project": "Horizon",
+      "name": "Cindy Lu",
+      "nick": "clu_"
+    },
+    {
+      "project": "Ironic",
+      "name": "Lucas Alvares Gomes",
+      "nick": "lucasagomes"
+    },
+    {
+      "project": "Keystone",
+      "name": "Dolph Mathews",
+      "nick": "dolphm"
+    },
+    {
+      "project": "MagnetoDB",
+      "name": "Ilya Sviridov",
+      "nick": "isviridov"
+    },
+    {
+      "project": "Magnum",
+      "name": "",
+      "nick": ""
+    },
+    {
+      "project": "Manila",
+      "name": "Alex Meade",
+      "nick": "ameade"
+    },
+    {
+      "project": "Mistral",
+      "name": "",
+      "nick": ""
+    },
+    {
+      "project": "Murano",
+      "name": "",
+      "nick": ""
+    },
+    {
+      "project": "Neutron",
+      "name": "Salvatore Orlando",
+      "nick": "salv-orlando"
+    },
+    {
+      "project": "Neutron",
+      "name": "Henry Gessau",
+      "nick": "HenryG"
+    },
+    {
+      "project": "Nova",
+      "name": "Matthew Gilliard",
+      "nick": "gilliard"
+    },
+    {
+      "project": "Nova",
+      "name": "Alex Xu",
+      "nick": "alex_xu"
+    },
+    {
+      "project": "Rally",
+      "name": "",
+      "nick": ""
+    },
+    {
+      "project": "Sahara",
+      "name": "Michael McCune",
+      "nick": "elmiko"
+    },
+    {
+      "project": "Sahara",
+      "name": "Sergey Lukjanov",
+      "nick": "SergeyLukjanov"
+    },
+    {
+      "project": "Swift",
+      "name": "John Dickinson",
+      "nick": "notmyname"
+    },
+    {
+      "project": "Trove",
+      "name": "Peter Stachowski",
+      "nick": "peterstac"
+    },
+    {
+      "project": "Trove",
+      "name": "Amrith Kumar",
+      "nick": "amrith"
+    },
+    {
+      "project": "Tripleo",
+      "name": "",
+      "nick": ""
+    },
+    {
+      "project": "Zaqar",
+      "name": "Fei Long Wang",
+      "nick": "flwang"
+    }
+  ]
+}
