@@ -38,16 +38,16 @@ The following process should occur:
    meetings. However we recognise that sometimes higher bandwidth, low
    latency discussions can help break deadlocks.
 
-3. Once a changeset meets the requirements of #2, the `Cross Project Liaisons
-   <https://wiki.openstack.org/wiki/CrossProjectLiaisons#API_Working_Group>`_
+3. Once a changeset meets the requirements of #2, the :doc:`liaisons`
    (CPLs) for the API WG should be engaged on various channels.
 
    1. Review. The CPLs must be added as reviewers to any changeset that has
-   reached consensus by the API WG.
+   reached consensus by the API WG. You can use the ``add-reviewers.py``
+   script to do this, see :doc:`liaisons` for more information.
 
    2. The openstack-dev mailing list. An email must be sent to the
    openstack-dev mailing list with the subject "[all][api] New API
-   Guidelines ready for cross project review". The email will contain links
+   Guidelines Ready for Cross Project Review". The email will contain links
    to all of the guidelines that have reached consensus.
 
    3. The `Cross Project Meeting
@@ -59,20 +59,21 @@ The following process should occur:
    Meeting should be attended by an API WG member to highlight the agenda
    item.
 
-4. Once a changeset meets the requirements of #2, it should be frozen by
-   setting Code-Review -2 to prevent an accidental merge during the CPL review
-   period.
+4. Once a changeset meets the requirements of #3, it should be frozen by
+   exactly one core reviewer by setting Code-Review +2. Only the core reviewer
+   responsible for freezing the guideline should +2 it. All other core
+   reviewers should vote with at most a +1 when reviewing.
 
-5. Once a changeset meets the requirements of #2, #3, and #4, the CPLs have
-   1 week to review it. If there is no review by a CPL, lazy consensus is
-   assumed. If there is a -1 review by a CPL that requires an update to the
-   changeset, it does not reset the 1 week the CPLs have to review it.
+5. Once a changeset meets the requirements of #4, the CPLs have 1 week to
+   review it. If there is no review by a CPL, lazy consensus is assumed.
+   If there is a -1 review by a CPL that requires an update to the changeset,
+   it does not reset the 1 week the CPLs have to review it.
 
 6. Once a changeset meets the requirements of #5, it can be merged.
 
-   An email must be sent to the openstack-dev mailing list with the subject
-   "[all][api] New API Guidelines finalized". The email will contain links
-   to all of the guidelines that have have been merged. The finalized
+   An email should be sent to the openstack-dev mailing list containing the
+   links to all of the guidelines that have been merged. This could
+   simply be a reply to the original email in #3.2. The finalized
    guidelines should be buffered such that a maximum of one announcement
    email is sent per week.
 
