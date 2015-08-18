@@ -124,6 +124,11 @@ Response::
         "tags": ['foo', 'baz', 'qux']
     }
 
+If the number of tags exceeds the limit allowed by the API, the return code
+should be **400 Bad Request** as the HTTP Guidelines describe. To achieve
+request success, the client should change the requested number of tags to
+be less than the API limit.
+
 Deleting Tags
 ~~~~~~~~~~~~~
 
