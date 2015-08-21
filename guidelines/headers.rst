@@ -26,10 +26,9 @@ Guidance
 This **does not** mean it is recommended to replace existing uses of ``X-``, or
 in using ``X-`` in private/local/development contexts. New APIs (or new API
 features) should make their best effort to not use header names that conflict
-with other applications. The simplest way to do this is to use either
-OpenStack, the service name, or both in the header. An example might be
-"OpenStack-Auth" or "Compute-FooBar", which are unlikely to be standardized
-already or conflict with existing headers.
+with other applications. To do this, use "OpenStack" and the service name in
+the header. An example might be "OpenStack-Compute-FooBar", which is unlikely
+to be standardized already or conflict with existing headers.
 
 :rfc:`6648` intentionally does not disallow using ``X-`` as a prefix, but does
 remove the experimental/unstandardized semantics from the prefix. For
@@ -41,13 +40,8 @@ Examples
 ********
 
 Some good header names that are clear, unlikely to conflict, and could become
-standardized might be::
-
-  Instance-Image-ACL
-  OpenStack-Identity-Status
-
-
-Some headers that are at risk for conflicts might look like::
+standardized might be ``OpenStack-Identity-Status`` Some headers that are at
+risk for conflicts might look like::
 
   Account-ID
   Host-Name
@@ -56,6 +50,6 @@ Some headers that are at risk for conflicts might look like::
 In these cases, adding ``OpenStack-`` as a prefix resolves the ambiguity, as
 in::
 
-  OpenStack-Account-ID
-  OpenStack-Host-Name
-  OpenStack-Storage-Policy
+  OpenStack-Identity-Account-ID
+  OpenStack-Networking-Host-Name
+  OpenStack-Object-Storage-Policy
