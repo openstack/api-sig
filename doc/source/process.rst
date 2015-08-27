@@ -77,11 +77,7 @@ The following process should occur:
    guidelines should be buffered such that a maximum of one announcement
    email is sent per week.
 
-7. Anyone who is listed on the `API Working Group Wiki
-   <https://wiki.openstack.org/wiki/API_Working_Group>`_ by
-   25/5/2015 (L1) can vote during the Liberty development cycle.
-
-8. Before an official version of the guidelines can be released the
+7. Before an official version of the guidelines can be released the
    following has to occur:
 
    * An 80% (of votes cast) majority vote on the document as a whole
