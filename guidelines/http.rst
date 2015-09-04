@@ -176,6 +176,37 @@ Failure Code Clarifications
 HTTP Methods
 ------------
 
+HTTP defines a concept of METHODS on a resource uri.
+
+..
+
+ +-------------+--------------+--------------------+--------------------+
+ | METHOD      | URI          | ACTION             | HAS BODY?          |
+ +-------------+--------------+--------------------+--------------------+
+ | HEAD        | /foo/ID      | EXISTS             | NO                 |
+ +-------------+--------------+--------------------+--------------------+
+ | GET         | /foo/ID      | READ               | NO                 |
+ +-------------+--------------+--------------------+--------------------+
+ | POST        | /foo         | CREATE             | YES                |
+ +-------------+--------------+--------------------+--------------------+
+ | PUT         | /foo/ID      | UPDATE             | YES                |
+ +-------------+--------------+--------------------+--------------------+
+ | PATCH       | /foo/ID      | UPDATE (partial)   | YES                |
+ +-------------+--------------+--------------------+--------------------+
+ | DELETE      | /foo/ID      | DELETE             | NO                 |
+ +-------------+--------------+--------------------+--------------------+
+
+This looks close to a CRUD mapping, but it's important to realize the
+defining characteristic of POST isn't that it creates items, but that
+you POST to a URI that's different than the resource you get
+back. POST is therefor also appropriate for bulk operations like
+multiple update, or triggering some arbitrary other actions beyond
+resource creation (i.e. reboot a server).
+
+**TODO**: HEAD is weird in a bunch of our wsgi frameworks and you
+don't have access to it. Figure out if there is anything useful
+there.
+
 **TODO**: Provide guidance on what HTTP methods (PUT/POST/PATCH/DELETE, etc)
 should always be supported, and which should be preferred.
 
