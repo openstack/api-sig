@@ -222,3 +222,57 @@ Conveying error/fault information to the end user
 **TODO**: We should have a section here that describes the recommended way of
 transmitting error/fault information back to the user, including any guidelines
 on the payload in the response body.
+
+Common Mistakes
+---------------
+
+There are many common mistakes that have been made in the
+implementations of RESTful APIs in OpenStack. This section attempts to
+enumerate them with reasons why they were wrong, and propose future
+alternatives.
+
+Use of 501 - Not Implemented
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Some time in the Folsom era projects started using 501 for "Feature
+Not Implemented" - `Discussion on openstack-dev
+<http://lists.openstack.org/pipermail/openstack-dev/2012-December/003759.html>`_
+
+This is a completely incorrect reading of HTTP. "Method" means
+something very specific in HTTP, it means an HTTP Method. One of GET /
+HEAD / POST / PUT / PATCH / OPTIONS / TRACE.
+
+The purpose of the 501 error was to indicate to the client that POST
+is not now, and never will be an appropriate method to call on any
+resource on the server. An appropriate client action is to blacklist
+POST and ensure no code attempts to use this. This comes from the
+early days of HTTP where there were hundreds of commercial HTTP server
+implementations, and the assumption that all HTTP methods would be
+handled by a server was not something the vendors could agree on. This
+usage was clarified in RFC :rfc:`7231#section-6.6.2` (section 6.6.2).
+
+If we assume the following rfc statement to be true: "This is the
+appropriate response when the server does not recognize the request
+method and is not capable of supporting it for any resource." that is
+irreconcilable with a narrower reading, because we've said all clients
+are correct in implementing "never send another POST again to any
+resource". It's as if saying the "closed" sign on a business means
+both, closed for today, as well as closed permanently and ok for the
+city to demolish the building tomorrow. Stating that either is a valid
+reading so both should be allowed only causes tears and confusion.
+
+We live in a very different world today, dominated by Apache and
+Nginx. As such 501 is something you'd be unlikely to see in the
+wild. However that doesn't mean we can replace it's definition with
+our own.
+
+Going forward projects should use a 400 'BadRequest' response for this
+condition, plus a more specific error message back to the user that
+the feature was not implemented in that cloud. 404 'NotFound' may also
+be appropriate in some situations when the URI will never
+exist. However one of the most common places where we would return
+"Feature Not Implemented" is when we POST an operation to a URI of the
+form /resource/{id}/action. Clearly that URI is found, however some
+operations on it were not supported. Returning a 404 (which is by
+default cachable) would make the client believe /resource/{id}/action
+did not exist at all on the server.
