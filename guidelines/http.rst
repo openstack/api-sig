@@ -117,11 +117,11 @@ largely grouped as follows:
 * For all other successful requests, the return code should be **200 OK**.
 
 * If a request attempts to put a resource into a state which it is
-  already in (eg locking an instance which is already locked), the return code
-  should be in the **2xx Successful** range (usually matching the return code
-  which would be given if the state had changed). It is not appropriate to use
-  **409 Conflict** when the resulting state of the resource is as the user
-  requested.
+  already in (for example, locking an instance which is already locked), the
+  return code should be in the **2xx Successful** range (usually matching the
+  return code which would be given if the state had changed). It is not
+  appropriate to use **409 Conflict** when the resulting state of the resource
+  is as the user requested.
 
 5xx Server Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -161,17 +161,17 @@ Failure Code Clarifications
 
 * If a request is made which attempts to perform an action on a resource which
   is already performing that action and therefore the request cannot be
-  fulfilled (eg snapshotting an instance which is already in the process of
-  snapshotting), the return code should be **409 Conflict**.
+  fulfilled (for example, snapshotting an instance which is already in the
+  process of snapshotting), the return code should be **409 Conflict**.
 
 * A **500 Internal Server Error** should **not** be returned to the user for
   failures due to user error that can be fixed by changing the request on the
   client side.  500 failures should be returned for any error state that cannot
   be fixed by a client, and requires the operator of the service to perform
   some action to fix. It is also possible that this error can be raised
-  deliberately in case of some detected but unrecoverable error such as failure
-  to communicate with another service component, eg MessageQueueTimeout,
-  IOError caused by a full disk, etc.
+  deliberately in case of some detected but unrecoverable error such as a
+  MessageQueueTimeout from a failure to communicate with another service
+  component, an IOError caused by a full disk, or similar error.
 
 HTTP Methods
 ------------
@@ -201,7 +201,7 @@ defining characteristic of POST isn't that it creates items, but that
 you POST to a URI that's different than the resource you get
 back. POST is therefor also appropriate for bulk operations like
 multiple update, or triggering some arbitrary other actions beyond
-resource creation (i.e. reboot a server).
+resource creation (for example, rebooting a server).
 
 **TODO**: HEAD is weird in a bunch of our wsgi frameworks and you
 don't have access to it. Figure out if there is anything useful
