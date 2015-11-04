@@ -154,6 +154,16 @@ Failure Code Clarifications
     quota -- for a subsequent request to succeed when quotas are exceeded the
     server environment must change.
 
+* If a request contains a reference to a nonexistent resource in the body
+  (not URI), the code should be **400 Bad Request**. Do **not** use **404
+  NotFound** because :rfc:`7231#section-6.5.4` (section 6.5.4) mentions
+  **the origin server did not find a current representation for the target
+  resource** for 404 and **representation for the target resource** means
+  a URI. **422 Unprocessable Entity** is also an option for this situation
+  but do **not** use 422 because the code is not defined in :rfc:`7231` and
+  not standard. (For example, the specified flavor doesn't exist when creating
+  a virtual machine, the code should be 400)
+
 * If a request is made to a known resource URI, but the HTTP method used for
   the request is not supported for that resource, the return code should be
   **405 Method Not Allowed**. The response should include the `Allow` header
