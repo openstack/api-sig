@@ -19,15 +19,16 @@ Preamble
 --------
 
 This document contains the guidelines and rules for OpenStack project
-APIs.
-
-including guidelines and proposed rules concerning API consistency, naming
+APIs including guidelines and proposed rules concerning API consistency, naming
 conventions, and best practice recommendations.
+
+If you would like to connect with the API Working Group, visit the wiki at:
+https://wiki.openstack.org/wiki/API_Working_Group
 
 If you are interested in contributing to this document, the git repository is
 available at: http://git.openstack.org/cgit/openstack/api-wg/
 
-OpenStack code and review submission processes are described here:
+OpenStack code and review submission processes are described at:
 http://docs.openstack.org/infra/manual/developers.html
 
 
