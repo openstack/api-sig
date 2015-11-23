@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://specs.openstack.org/openstack/api-wg/errors-schema.json#",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array",
+      "description": "An ordered list of errors with the most recent error first.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "description": "Additional information about problems encountered while performing an operation.",
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "description": "A unique identifier for this particular occurrence of the problem. If this property is present, it MUST match the X-Openstack-Request-Id header of the response in which it occurred."
+          },
+          "code": {
+            "type": "string",
+            "description": "A service-specific error code. The general form of the code is service-name.error-code. service-name MUST be the service name as defined by the service field of https://git.openstack.org/cgit/openstack/governance/tree/reference/projects.yaml where spaces within the service name are replaced by '-' and if the word 'service' appears in the name, it MUST be omitted. error-code is defined by service project team and MUST only consist of lowercase alpha, numeric, '.', and '-' characters."
+          },
+          "status": {
+            "type": "integer",
+            "description": "The HTTP status code applicable to this problem. It MUST match the status code of the response in which it occurred."
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization."
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem."
+          },
+          "links": {
+            "type": "array",
+            "description": "An array that MUST contain at least one Link Description Object with a 'rel': 'help' and an 'href' that links to a resource that can help the user as defined by http://specs.openstack.org/openstack/api-wg/guidelines/errors.html#errors-documentation",
+            "minItems": 1,
+            "items": { "$ref": "http://json-schema.org/draft-04/links" }
+          }
+        },
+        "required": [
+          "code",
+          "status",
+          "title",
+          "detail",
+          "links"
+        ]
+      }
+    }
+  },
+  "required": [
+    "errors"
+  ]
+}
