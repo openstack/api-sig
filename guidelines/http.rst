@@ -168,6 +168,13 @@ Failure Code Clarifications
   not standard. (For example, the specified flavor doesn't exist when creating
   a virtual machine, the code should be 400)
 
+* If a request contains an unexpected attribute in the body, the server should
+  return a **400 Bad Request** response. Do **not** handle the request as
+  normal by ignoring the bad attribute. Returning an error allows the client
+  side to know which attribute is wrong and have the potential to fix a bad
+  request or bad code. (For example, `additionalProperties` should be `false`
+  on JSON-Schema definition)
+
 * If a request is made to a known resource URI, but the HTTP method used for
   the request is not supported for that resource, the return code should be
   **405 Method Not Allowed**. The response should include the `Allow` header
