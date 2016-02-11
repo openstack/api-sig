@@ -136,6 +136,10 @@ request process which cannot be resolved by the client alone. The nature
 of each code in the 5xx series carries a specific meaning and they should
 be fully researched before deploying.
 
+The server **must not** return server-side stacktraces/traceback output to the
+end user. Tracebacks and stacktraces belong in server-side logs, not returned
+via the HTTP API to an end user.
+
 Failure Code Clarifications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
