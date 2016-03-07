@@ -4,6 +4,7 @@ import argparse
 import json
 import logging
 import subprocess
+import sys
 
 logger = logging.getLogger(__name__)
 
@@ -14,7 +15,7 @@ def parse_args():
     parser.add_argument('--debug', help="Print debugging information",
                         action='store_true')
     parser.add_argument("username", help="Your Gerrit username", type=str)
-    parser.add_argument("review", help="An API WG Gerrit review", type=int)
+    parser.add_argument("review", help="An API WG Gerrit review", type=str)
     args = parser.parse_args()
 
     return (args.debug, args.username, args.review)
@@ -38,6 +39,9 @@ def add_reviewers(debug, username, liaisons, review):
     ]
 
     for liaison in liaisons:
+        # Hack to avoid six
+        if sys.version_info.major < 3:
+            liaison = liaison.encode('utf-8')
         gerrit.append('--add "{}"'.format(liaison))
 
     gerrit.append('{}'.format(review))
