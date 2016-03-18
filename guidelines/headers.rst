@@ -53,3 +53,37 @@ in::
   OpenStack-Identity-Account-ID
   OpenStack-Networking-Host-Name
   OpenStack-Object-Storage-Policy
+
+Avoid Proliferating Headers
+---------------------------
+
+It can be tempting to use the names of headers as a way of passing
+specific information between the client and the server. Where possible
+this should be avoided in favor of using a more generic header name
+and placing the specifics in the value. For example compare the
+following two headers::
+
+  OpenStack-API-Version: Compute 2.1
+  OpenStack-Nova-API-Version: 2.1
+
+.. note:: The second header is in the form of a microversion header
+   currently in use. It effectively demonstrates the problem. Also
+   note that whereas the older header uses a service name the newer
+   header uses the more correct service type.
+
+At first glance these header name and value pairs convey the same
+information, with the second option being a bit easier to parse on
+the server side. However consider the following problems when using
+the second form:
+
+* A new header is needed every time there is a new service.
+* It violates the principle that in key-value based data structures
+  the key should be an accessor only, that is: It should be opaque
+  and generic.
+* If CORS[1]_ middleware is being used, it needs to be configured to
+  allow a multitude of headers instead of a generic one.
+* Generic library code (in either the client or the server) that is
+  supposed to deal with this class of header has to construct or parse
+  strings on both sides of the name-value pair.
+
+.. [1]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
