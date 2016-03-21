@@ -3,7 +3,7 @@ Counting Resources
 
 This topic document serves to provide guidance on returning the total size of
 a resource collection in a project's public REST API; this is useful when the
-total number of resources may be larger then the number of the resources being
+total number of resources may be larger than the number of resources being
 enumerated in a single response.
 
 Guidance
