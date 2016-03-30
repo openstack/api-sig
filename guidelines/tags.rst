@@ -18,8 +18,7 @@ Tags Representation
 -------------------
 
 Tags are strings attached to an entity with the purpose of classification into
-groups. To simplify requests that specify lists of tags, the comma character
-is not allowed to be in a tag name.
+groups.
 
 An entity can have zero, one or more tags associated with it, for that
 reason the recommended representation within the parent entity is a list.
@@ -50,6 +49,25 @@ the updated tag list with the resource representation.
 For resources that have a representation that is not in JSON a separate
 endpoint must be created to expose the tags. See the "Tag Resource URLs"
 section below for more information.
+
+Tags Restrictions
+-----------------
+
+Tags are strings with the following basic restrictions:
+
+* Tags are case sensitive.
+* '/' is **not** allowed to be in a tag name
+* Comma is **not** allowed to be in a tag name in order to simplify requests
+  that specify lists of tags
+* All other characters are allowed to be in a tag name
+
+.. note::
+
+    The '/' character is forbidden because some servers have a problem with
+    encoding this character. The problem is that the server will handle '%2F'
+    as '/' even though '/' is encoded. It's a problem of poor server
+    implementation. To avoid problems with handling URLs character '/' is
+    forbidden in tag names.
 
 Character Encoding for Tags
 ---------------------------
