@@ -1,0 +1,19 @@
+ {
+    "errors": [
+        {
+            "request_id": "2ee92f06-8ede-4fb4-8921-b507601fb59d",
+            "code": "compute.microverion-unsupported",
+            "status": 406,
+            "title": "Requested microversion is unsupported",
+            "detail": "Version 5.3 is not supported by the API. Minimum is 2.1 and maximum is 5.2.",
+            "max_version": "5.2",
+            "min_version": "2.1",
+            "links": [
+                {
+                    "rel": "help",
+                    "href": "http://developer.openstack.org/api-guide/compute/microversions.html"
+                }
+             ]
+         }
+     ]
+}
