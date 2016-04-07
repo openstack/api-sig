@@ -61,6 +61,11 @@ That process is:
 4. When there is consensus from the CPLs, the proposal may be
    merged.
 
+   To avoid opportunities for miscommunication, the core working
+   group member who froze the changeset should be responsible for
+   merging it. If that core is unavailable for enough time to cause
+   a delay then the responsibility falls to one of the others cores.
+
    An email should be sent to the openstack-dev mailing list containing
    the links to all of the guidelines that have recently merged. The
    finalized guidelines should be buffered such that a maximum of one
