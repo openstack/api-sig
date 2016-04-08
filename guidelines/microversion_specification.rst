@@ -112,6 +112,12 @@ and not just the body and query parameters. See
   joined by a ',' (comma). For example ``compute 2.11,identity
   2.114``.
 
+.. note:: A Python library called `microversion-parse`_ is available
+          to help with server-side processing of microversion
+          headers, both the new style described in this document and
+          previous forms.
+
+.. _microversion-parse: https://pypi.python.org/pypi/microversion_parse
 
 Version Discovery
 -----------------
