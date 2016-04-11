@@ -86,4 +86,4 @@ the second form:
   supposed to deal with this class of header has to construct or parse
   strings on both sides of the name-value pair.
 
-.. [1]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
+.. _[1]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
