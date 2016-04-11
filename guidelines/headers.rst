@@ -80,10 +80,10 @@ the second form:
 * It violates the principle that in key-value based data structures
   the key should be an accessor only, that is: It should be opaque
   and generic.
-* If CORS[1]_ middleware is being used, it needs to be configured to
+* If CORS [1]_ middleware is being used, it needs to be configured to
   allow a multitude of headers instead of a generic one.
 * Generic library code (in either the client or the server) that is
   supposed to deal with this class of header has to construct or parse
   strings on both sides of the name-value pair.
 
-.. _[1]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
+.. [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
