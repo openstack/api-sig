@@ -21,10 +21,10 @@ First you should generate or write the reference information including:
 - Example response body and headers
 - Status codes: successful request and error responses
 - Resource model: describes data types that can be consumed and produced by
-  operations. This can be through the `Swagger Definitions object <https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md#definitionsObject>`_
+  operations. This can be through the `OpenAPI Definitions object <https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#definitionsObject>`_
 
-For this reference information, use the `Swagger 2.0 specification <https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md>`_. See
-authoring tools below for more information on writing or generating the Swagger
+For this reference information, use the `OpenAPI Specification V2.0 <https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md>`_. See
+authoring tools below for more information on writing or generating the OpenAPI
 document.
 
 Also important is the conceptual or narrative information that explains the
@@ -37,7 +37,7 @@ Documentation should provide a discussion about the consistency model the
 service provides and synchronous or asynchronous behavior for certain methods.
 
 As guidance, here is a list of topics to ensure you include in your API docs
-beyond the Swagger reference information.
+beyond the OpenAPI reference information.
 
  * Authentication
  * Faults (synchronous and asynchronous)
@@ -60,32 +60,32 @@ beyond the Swagger reference information.
  * Extensions
 
 These topics should be written in RST and built with either Sphinx or alongside
-the generated Swagger using the Pecan app described below. The outline itself
+the generated OpenAPI using the Pecan app described below. The outline itself
 is not prescribed since REST APIs vary widely.
 
 Authoring tools
 ---------------
 
-What is Swagger? `Swagger <http://swagger.io/community/>`_ is a
+What is OpenAPI? `OpenAPI(aka Swagger) <http://swagger.io/community/>`_ is a
 community-maintained standard for REST API design
-and documentation with open-source tooling. Swagger can be written in a YAML
+and documentation with open-source tooling. OpenAPI can be written in a YAML
 format and then downloaded as a converted JSON file. It allows for inclusion of
 content similar to our current entities. To output the information you must run
 a server that renders the content. The current community-maintained
-`specification for Swagger is version 2.0
-<https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md>`_.
+`specification for OpenAPI is version 2.0
+<https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md>`_.
 
 The centralized OpenStack documentation team works on common tooling for
-migrating from WADL to Swagger. See https://github.com/russell/fairy-slipper.
+migrating from WADL to OpenAPI. See https://github.com/russell/fairy-slipper.
 
-In addition, there's a Pecan decorator proof-of-concept for creating Swagger
+In addition, there's a Pecan decorator proof-of-concept for creating OpenAPI
 when using a Pecan app. See https://github.com/elmiko/pecan-swagger.
 
 Publishing tools
 ----------------
 
 Within the repo at `fairy-slipper <https://github.com/russell/fairy-slipper>`_
-running the Pecan web app can serve RST and Swagger documentation but that
+running the Pecan web app can serve RST and OpenAPI documentation but that
 tooling is not yet completed.
 
 The existing OpenStack infrastructure provides publishing to docs.openstack.org
