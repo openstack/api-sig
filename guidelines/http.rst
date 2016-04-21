@@ -255,12 +255,11 @@ should always be supported, and which should be preferred.
   **POST** to a more generic URI which will respond with the new URI of the
   resource.
 
-* GET method
-
- * GET method should be used only for getting information of resources, and it
-   should not change resources' state at all because :rfc:`7231` mentions **GET
-   is the primary mechanism of information retrieval and the focus of almost
-   all performance optimizations.**.
+* The **GET** method should only be used for retrieving representations of
+  resources. It should never change the state of the resource identified by
+  the URI nor the state of the server in general. :rfc:`7231#section-4.3.1`
+  states **GET is the primary mechanism of information retrieval and the
+  focus of almost all performance optimizations.**.
 
 HTTP request bodies are theoretically allowed for all methods except TRACE,
 however they are not commonly used except in PUT, POST and PATCH. Because of
