@@ -66,10 +66,11 @@ following two headers::
   OpenStack-API-Version: compute 2.1
   OpenStack-Nova-API-Version: 2.1
 
-.. note:: The second header is in the form of a microversion header
-   currently in use. It effectively demonstrates the problem. Also
-   note that whereas the older header uses a service name the newer
-   header uses the more correct service type.
+.. note:: The first header is the recommended form. The second header
+   is in the form of a microversion header currently in use. It
+   effectively demonstrates the problem. Also note that whereas the
+   second header uses a service name, the first header uses the more
+   correct service type.
 
 At first glance these header name and value pairs convey the same
 information, with the second option being a bit easier to parse on
