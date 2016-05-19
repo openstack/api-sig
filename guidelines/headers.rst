@@ -63,7 +63,7 @@ this should be avoided in favor of using a more generic header name
 and placing the specifics in the value. For example compare the
 following two headers::
 
-  OpenStack-API-Version: Compute 2.1
+  OpenStack-API-Version: compute 2.1
   OpenStack-Nova-API-Version: 2.1
 
 .. note:: The second header is in the form of a microversion header
