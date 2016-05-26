@@ -106,6 +106,8 @@ root metadata URL, with the updated complete list of metadata items in the
 body of the request. On success, the server responds with a 200 status code
 and the complete updated metadata block in the response body.
 
+.. note:: A PUT request should use etags to avoid the lost update problem.
+
 Example request (updates "foo", removes "bar", adds "qux" and leaves "baz"
 untouched)::
 
@@ -138,6 +140,30 @@ with a 204 status code.
 Example request::
 
     DELETE /servers/1234567890/metadata
+
+To delete multiple metadata items without affecting the remaining ones,
+a PUT request must be sent to the root metadata URL with the updated complete
+list of metadata items (without items to delete) in the body of the request.
+On success, the server responds with a 200 status code.
+
+Example request (removes “foo” and “qux”)::
+
+    PUT /servers/1234567890/metadata
+    {
+        "metadata": {
+            "baz": "Baz Value"
+        }
+    }
+
+Response::
+
+    {
+        "metadata": {
+            "baz": "Baz Value"
+        }
+    }
+
+To delete a single metadata item see below.
 
 Addressing Individual Metadata Items
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
