@@ -54,7 +54,7 @@ Client Interaction
 A client specifies the version of the API they want via the following
 approach, a new header::
 
-  OpenStack-API-Version: [SERVICE_TYPE] 2.114
+  OpenStack-API-Version: [SERVICE_TYPE] [X.Y]
 
 For example, Keystone will use the header::
 
