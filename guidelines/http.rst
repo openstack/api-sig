@@ -267,13 +267,6 @@ this, they may not be supported properly by some client frameworks and we
 would discourage API methods from accepting request bodies for GET, DELETE,
 TRACE, OPTIONS and HEAD methods.
 
-Conveying error/fault information to the end user
--------------------------------------------------
-
-**TODO**: We should have a section here that describes the recommended way of
-transmitting error/fault information back to the user, including any guidelines
-on the payload in the response body.
-
 Common Mistakes
 ---------------
 
