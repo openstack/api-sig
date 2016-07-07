@@ -4,9 +4,6 @@
 OpenStack API Working Group
 ===========================
 
-.. NOTE::
-  THIS DOCUMENT IS CURRENTLY A DRAFT ONLY
-
 Mission Statement
 -----------------
 
