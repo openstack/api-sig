@@ -88,8 +88,11 @@ to succeed.::
 If values contain commas, they can be quoted similar to CSV escaping. For
 example, a query for the value ``a,bc`` or ``d`` would be
 ``?foo=in:"a,bc",d``. If values contain double-quotes, those can be
-backslashed inside quotes. For a value ``a"b"c`` the query would be
-``?foo="a\"b\"c"``.
+backslashed inside quotes. Newline ("\n") and carriage return ("\r") escapes
+are also allowed. Actual backslashes must be doubled. For a value ``a"b\c``
+the query would be ``?foo="a\"b\\c"``. Unquoted values may not contain quotes
+and backslashes are treated as any other character. So for a value ``a\b``
+the query would be ``?foo=a\b``.
 
 For queries that need comparisons other than simple equals, operators are
 supported for membership, inequality, greater-than, greater-than-or-equal,
