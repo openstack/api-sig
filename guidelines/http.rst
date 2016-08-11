@@ -194,6 +194,9 @@ Failure Code Clarifications
   MessageQueueTimeout from a failure to communicate with another service
   component, an IOError caused by a full disk, or similar error.
 
+.. note:: If an error response body is returned, it must conform to the
+   :ref:`errors` guideline.
+
 HTTP Methods
 ------------
 
