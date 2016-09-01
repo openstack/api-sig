@@ -29,6 +29,15 @@ OpenStack code and review submission processes are described at:
 http://docs.openstack.org/infra/manual/developers.html
 
 
+.. warning::
+    These documents from the API Working Group are primarily focused on
+    providing advice and guidelines for JSON-based APIs. While other
+    representations have their place in the OpenStack ecosystem, they present
+    such a diversity of challenges and edge cases, especially with large
+    and/or binary request and response bodies, that it is impossible to
+    provide guidance that is complete. Where there is doubt refer to the
+    HTTP RFCs, 7230 through 7235, as the ultimate authority.
+
 Guidelines
 ----------
 
