@@ -54,7 +54,7 @@ Client Interaction
 A client specifies the version of the API they want via the following
 approach, a new header::
 
-  OpenStack-API-Version: [SERVICE_TYPE] [X.Y]
+  OpenStack-API-Version: [SERVICE_TYPE] [VERSION_STRING]
 
 For example, Keystone will use the header::
 
@@ -77,6 +77,12 @@ Clients should expect the following behavior from the server:
   range of versions supported and is not the string ``latest`` (as
   described below), return 406 Not Acceptable, and a response body
   including the supported minimum and maximum versions.
+
+* The value of ``OpenStack-API-Version`` header is
+  ``[SERVICE_TYPE] [VERSION_STRING]``. The VERSION_STRING must match
+  `"^([1-9]\d*)\.([1-9]\d*|0)$"`. If the VERSION_STRING doesn't match the regex
+  pattern, return a 400 Bad Request with an error response body that conforms
+  to the errors guideline :ref:`errors`.
 
 * If OpenStack-API-Version header is sent, the service type matches, and
   the version is set to the special keyword ``latest`` behave as if
