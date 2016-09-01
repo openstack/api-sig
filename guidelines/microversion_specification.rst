@@ -153,6 +153,8 @@ provided by Nova::
        ]
     }
 
+.. note:: The ``links`` conform to the :ref:`links` guideline.
+
 "max_version" is maximum version, "min_version" is minimum version.
 
 When the requested version is out of range for the server, the server returns

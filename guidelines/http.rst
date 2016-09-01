@@ -80,6 +80,12 @@ in the OpenStack API is critical to the API being compatible with the
 vast range of runtimes, programming languages, and proxy servers (open
 and commercial) that exist in the wild.
 
+HTTP Links
+----------
+
+Including links to resources are an important part of any HTTP API. Links in
+OpenStack APIs conform to the :ref:`links` guideline.
+
 HTTP Response Codes
 -------------------
 
