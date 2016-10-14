@@ -272,9 +272,9 @@ should always be supported, and which should be preferred.
 
 HTTP request bodies are theoretically allowed for all methods except TRACE,
 however they are not commonly used except in PUT, POST and PATCH. Because of
-this, they may not be supported properly by some client frameworks and we
-would discourage API methods from accepting request bodies for GET, DELETE,
-TRACE, OPTIONS and HEAD methods.
+this, they may not be supported properly by some client frameworks, and you
+should not allow request bodies for GET, DELETE, TRACE, OPTIONS and HEAD
+methods.
 
 Common Mistakes
 ---------------
