@@ -20,8 +20,10 @@ X.Y following these conventions:
   API change is made which affects the API as whole. That is, something
   that is only very rarely incremented. X should be changed in the following
   cases.
-  ** A number of endpoints get replaced by others
-  ** Drastic changes in API consumer workflow
+
+  * A number of endpoints get replaced by others
+  * Drastic changes in API consumer workflow
+
 * Y should be changed when you make any change to the API. Note that this
   includes semantic changes which may not affect the input or output formats or
   even originate in the API code layer. We are not distinguishing
