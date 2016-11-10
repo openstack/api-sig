@@ -226,12 +226,20 @@ HTTP defines a concept of METHODS on a resource uri.
  | DELETE      | /foo/ID      | DELETE             | NO                 |
  +-------------+--------------+--------------------+--------------------+
 
-This looks close to a CRUD mapping, but it's important to realize the
-defining characteristic of POST isn't that it creates items, but that
-you POST to a URI that's different than the resource you get
-back. POST is therefor also appropriate for bulk operations like
-multiple update, or triggering some arbitrary other actions beyond
-resource creation (for example, rebooting a server).
+The mapping of HTTP requests method to the Create, Read, Update, Delete
+(`CRUD
+<https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_) model
+is one of convenience that can be considered a useful, but incomplete,
+memory aid. Specifically it misrepresents the meaning and purpose
+of POST. According to :rfc:`7231#section-4.3.3` POST "requests that
+the target resource process the representation enclosed in the request
+according to the resource's own specific semantics". This can, and
+often does, mean create but it can mean many other things, based on
+the resource's requirements.
+
+More generally, CRUD models the four basic functions of persistent
+storage. An HTTP API is not solely a proxy for persistent storage.
+It can provide access to such storage, but it can do much more.
 
 **TODO**: HEAD is weird in a bunch of our wsgi frameworks and you
 don't have access to it. Figure out if there is anything useful
