@@ -129,6 +129,24 @@ General Advice on URI Design
      indicate support for any `query` format. Rather it is merely to
      demonstrate cleaner semantics in the `path` portion of the URI.
 
+Complex Queries
+---------------
+
+In some cases it may be necessary to return a set of resources that match a set
+of filter conditions. For those situations, use the **GET** method, and create
+a query string that concatenates all the requirements. As an example, if you
+needed to return all the birds which are blue and are migratory and that swim,
+the URI would look like::
+
+    GET /birds?color=blue&migratory=true&swimming=true
+
+There are restrictions on the length of URIs that vary depending on the server
+and client in use. The most restrictive are some browsers that have a maximum
+URI length of about 2K, while web servers such as Apache limit URIs to around
+8K. If the length of the URI needed to express the complex requirements of a
+request may possibly exceed those limits, it is acceptable to use the ``POST``
+method with the filter conditions passed in the body of the request.
+
 .. rubric:: Footnotes
 
 .. [#url] https://en.wikipedia.org/wiki/Uniform_Resource_Locator
