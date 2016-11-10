@@ -126,6 +126,82 @@ because it's possible for there to be no matches in the first page of results,
 and returning an empty page is a poor API when the user explicitly requested a
 number of results.
 
+Time based filtering queries
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To support filtering based on time intervals such as mentioned in the `ISO8601
+intervals wikipedia page`_, it should be possible to express the following
+usecases through API queries:
+
+* a two-ISO8601-date timestamp interval
+* an open-ended, single-ISO8601-date interval
+* multiple time intervals an item may belong to
+* equality with a default value where no time has been set yet
+
+.. _ISO8601 intervals wikipedia page:  https://en.wikipedia.org/wiki/ISO_8601#Time_intervals
+
+For instance, the `Ironic Inspector`_ project keeps track of node introspection
+statuses that include the ``started_at`` and ``finished_at`` fields. While the
+former value is always present, the latter is present only if the introspection
+finished::
+
+  GET /app/item
+  {
+    "items": [
+      {"id": "item1", "started_at": "2016-10-10T15:00Z",
+       "finished_at": "2016-10-10T15:30Z"},
+      {"id": "item2", "started_at": "2016-10-10T15:15Z",
+       "finished_at": "2016-10-10T16:00Z"},
+      {"id": "item3", "started_at": "2016-10-10T15:45Z",
+       "finished_at": null}
+    ]
+  }
+
+.. _Ironic Inspector: http://docs.openstack.org/developer/ironic-inspector/
+
+To obtain items that finished between 15:30 and 16:00 UTC Today use an
+interval with two boundaries::
+
+  GET /app/items?finished_at=ge:15:30&finished_at=lt:16:00
+  {
+    "items": [
+      {"id": "item1", "started_at": "2016-10-10T15:00Z",
+       "finished_at": "2016-10-10T15:30Z"}
+    ]
+  }
+
+To list items that finished any time after 15:30 UTC Today, use an
+open-ended time interval query::
+
+  GET /app/items?finished_at=ge:15:30
+  {
+    "items": [
+      {"id": "item1", "started_at": "2016-10-10T15:00Z",
+       "finished_at": "2016-10-10T15:30Z"},
+      {"id": "item2", "started_at": "2016-10-10T15:15Z",
+       "finished_at": "2016-10-10T16:00Z"}
+    ]
+  }
+
+Finally, to include items that didn't finish yet, use the default value
+equality. Since the queries are implicitly AND-ed, use two requests::
+
+  GET /app/items?finished_at=ge:16:00
+  {
+    "items": [
+      {"id": "item2", "started_at": "2016-10-10T15:15Z",
+       "finished_at": "2016-10-10T16:00Z"}
+    ]
+  }
+  GET /app/items?finished_at=null
+  {
+    "items": [
+      {"id": "item3", "started_at": "2016-10-10T15:45Z",
+       "finished_at": null}
+    ]
+  }
+
+
 Sorting
 -------
 
