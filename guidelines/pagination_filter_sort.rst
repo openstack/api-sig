@@ -95,10 +95,10 @@ and backslashes are treated as any other character. So for a value ``a\b``
 the query would be ``?foo=a\b``.
 
 For queries that need comparisons other than simple equals, operators are
-supported for membership, inequality, greater-than, greater-than-or-equal,
-less-than, and less-than-or-equal-to. In order, the operators are: ``in``,
-``neq``, ``gt``, ``gte``, ``lt``, and ``lte``. Simple equality is the default
-operation, and is performed as ``?param=foo``.
+supported for membership, non-membership, inequality, greater-than,
+greater-than-or-equal, less-than, and less-than-or-equal-to. In order, the
+operators are: ``in``, ``nin``, ``neq``, ``gt``, ``gte``, ``lt``, and ``lte``.
+Simple equality is the default operation, and is performed as ``?param=foo``.
 
 They can be used in queries compounded with the values they work on. For
 example, finding objects with a size greater than 8 would be written as
