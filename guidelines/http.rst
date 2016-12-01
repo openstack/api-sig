@@ -166,13 +166,18 @@ Failure Code Clarifications
 
 * If a request contains a reference to a nonexistent resource in the body
   (not URI), the code should be **400 Bad Request**. Do **not** use **404
-  NotFound** because :rfc:`7231#section-6.5.4` (section 6.5.4) mentions
-  **the origin server did not find a current representation for the target
-  resource** for 404 and **representation for the target resource** means
-  a URI. **422 Unprocessable Entity** is also an option for this situation
-  but do **not** use 422 because the code is not defined in :rfc:`7231` and
-  not standard. (For example, the specified flavor doesn't exist when creating
-  a virtual machine, the code should be 400)
+  NotFound** because :rfc:`7231#section-6.5.4` (section 6.5.4) mentions **the
+  origin server did not find a current representation for the target resource**
+  for 404 and **representation for the target resource** means a URI. A good
+  example of this case would be when requesting to resize a server to a
+  non-existent flavor. The server is the resource in the URI, and as long as it
+  exists, 404 would never be the proper response. **422 Unprocessable Entity**
+  is also an option for this situation but do **not** use 422 because the code
+  is not defined in :rfc:`7231` and not standard. Since the 400 response code
+  can mean a wide range of things, it is extremely important that the error
+  message returned clearly indicates that the resource referenced in the body
+  does not exist, so that the consumer has a clear understanding of what they
+  need to do to correct the problem.
 
 * If a request contains an unexpected attribute in the body, the server should
   return a **400 Bad Request** response. Do **not** handle the request as
