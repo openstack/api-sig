@@ -31,8 +31,8 @@ server.
 Fields within these serialized request and response bodies should be named
 according to these guidelines:
 
-* Field names should use `snake_case` style, *not* `CamelCase` or `MixedCase`
-  style.
+* Field names should use the `snake_case` style, *not* `CamelCase` or
+  `StUdLyCaPs` style.
 
 **TODO** Add patch proposing guidelines for how to name boolean fields.
 
