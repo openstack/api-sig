@@ -36,4 +36,17 @@ according to these guidelines:
 
 **TODO** Add patch proposing guidelines for how to name boolean fields.
 
-**TODO** Add patch proposing guidelines for naming state/status fields.
+State vs. Status
+----------------
+
+While these two names mean nearly the same thing, there are differences. In
+general, 'state' should be used when recording where in a series of steps a
+process is in. In other words, 'state' is expected to change, and then only to
+a small number of subsequent states. An example of this would be the building
+of a VM, which follows a series of steps, and either moves forward to the next
+state, or falls into an ERROR state.
+
+Status, on the other hand, should be used for cases where there is no
+expectation of a series of changes. A service may have the status of "up" or
+"active", and it is expected that it should remain like that unless either and
+admin changes it, or a failure occurs.
