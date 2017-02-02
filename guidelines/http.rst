@@ -186,6 +186,17 @@ Failure Code Clarifications
   request or bad code. (For example, `additionalProperties` should be `false`
   on JSON-Schema definition)
 
+* Similarly, if the API supports query parameters and a request contains an
+  unknown or unsupported parameter, the server should return a **400 Bad
+  Request** response. Invalid values in the request URL should never be
+  silently ignored, as the response may not match the client's expectation. For
+  example, consider the case where an API allows filtering on name by
+  specifying '?name=foo' in the query string, and in one such request there is
+  a typo, such as '?nmae=foo'. If this error were silently ignored, the user
+  would get back all resources instead of just the ones named 'foo', which
+  would not be correct.  The error message that is returned should clearly
+  indicate the problem so that the user could correct it and re-submit.
+
 * If a request is made to a known resource URI, but the HTTP method used for
   the request is not supported for that resource, the return code should be
   **405 Method Not Allowed**. The response should include the `Allow` header
