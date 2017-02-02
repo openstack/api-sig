@@ -159,6 +159,27 @@ provided by Nova::
 
 "max_version" is maximum version, "min_version" is minimum version.
 
+While it is typical for there to be a single API for a given service, it is
+also sometimes useful to be able to offer more than one version of a given API.
+Common examples of this are when an older version is still made available in
+order to support clients that have not yet upgraded to the current version, or
+when a new API version is being tested before it is released. To distinguish
+these different APIs for the same service, the `status` value is used. The
+following values can be returned for status:
+
+============  =======
+Status        Meaning
+============  =======
+CURRENT       The newest API that is currently being developed and improved.
+              Unless you need to support old code, use this API.
+SUPPORTED     An older version of the API. No new features will be added to
+              this version, but any bugs discovered in the code may be fixed.
+DEPRECATED    This API will be removed in the foreseeable future. You should
+              start planning on using alternatives.
+EXPERIMENTAL  This API is under development ('alpha'), and you can expect it to
+              change or even be removed.
+============  =======
+
 When the requested version is out of range for the server, the server returns
 status code **406 Not Acceptable** along with a response body.
 
