@@ -92,7 +92,7 @@ Clients should expect the following behavior from the server:
 
 .. warning:: The ``latest`` value is mostly meant for integration testing and
   would be dangerous to rely on in client code since microversions are not
-  following `semver <http://semver.org/>`_ and therefore backward compability
+  following `semver <http://semver.org/>`_ and therefore backward compatibility
   is not guaranteed. Clients should always require a specific microversions but
   limit what is acceptable to the version range that it understands at the
   time.
