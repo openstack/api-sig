@@ -132,9 +132,14 @@ Version Discovery
 
 The Version API for each service should return the minimum and maximum
 versions. These values are used by the client to discover the supported API
-versions.
+versions. If a service ever decides to raise the minimum version that will be
+supported, it should also return the next minimum version, as well as a date
+until which the current minimum version is guaranteed to be supported. If there
+are no plans to change the minimum microversion, the next minimum version and
+support date should be omitted.
 
-A version response would look as follows::
+A version response for a service that is planning on raising its minimum
+supported version would look as follows::
 
     GET /
     {
@@ -148,15 +153,43 @@ A version response would look as follows::
                     }
                 ],
                 "status": "CURRENT",
-                "max_version": "5.2",
-                "min_version": "2.1"
+                "max_version": "2.42",
+                "min_version": "2.1",
+                "next_min_version": "2.13",
+                "not_before": "2019-12-31"
             },
        ]
     }
 
 .. note:: The ``links`` conform to the :ref:`links` guideline.
 
-"max_version" is maximum version, "min_version" is minimum version.
+"max_version" is the maximum version supported; "min_version" is the minimum
+version supported; "next_min_version" is the planned next minimum version; and
+"not_before" is the date (in ISO YYYY-MM-DD format) before which the minimum
+will not change. Note that this doesn't require that the minimum be raised on
+that date; that can happen any time afterwards. It is there to give operators a
+sense of how quickly they need to change their tooling to support it.
+
+If there is no planned change to the minimum version, the response can omit the
+'next_min_version' and 'not_before' values. Such a response would look like::
+
+    GET /
+    {
+         "versions": [
+            {
+                "id": "v2.1",
+                "links": [
+                      {
+                        "href": "http://localhost:8774/v2/",
+                        "rel": "self"
+                    }
+                ],
+                "status": "CURRENT",
+                "max_version": "2.42",
+                "min_version": "2.1",
+            },
+       ]
+    }
 
 While it is typical for there to be a single API for a given service, it is
 also sometimes useful to be able to offer more than one version of a given API.
