@@ -8,10 +8,138 @@ and sorting capabilities in a project's public REST API.
 Pagination
 ----------
 
-**TODO** Discuss the methods currently used to paginate in OpenStack APIs.
+Pagination can be implemented using one or both of two query parameters:
 
-**TODO** Make a proposal/decision on the recommended way to implement
-pagination.
+- ``limit`` to define the number of items returned in the response, and
+
+- ``marker`` to specify the ID of the last seen item
+
+Note that the marker need not always be the ID/UUID field of the record; it can
+be any field or combination of fields that will uniquely identify that record.
+Using a marker that is not unique will result in overlap or skipped records
+between paged results.
+
+For example::
+
+  GET /app/items?limit=30
+
+Would return *at most* 30 items::
+
+  {
+    "items": [
+      {
+        "id": "719aae5f70db4364850f6198ea874aa6",
+        "foo": "bar",
+        "baz": "quux",
+        "size": 9
+      },
+      ...
+      {
+        "id": "08ec231f6d9a43dda97d4b950c3393df",
+        "foo": "buzz",
+        "baz": "honk",
+        "size": 6
+      }
+    ]
+  }
+
+If, we then wanted to request the next 30 items after the last one, we would
+do::
+
+  GET /app/items?limit=30&marker=08ec231f6d9a43dda97d4b950c3393df
+
+This would return the next (at most) 30 items after the item with ID
+``08ec231f6d9a43dda97d4b950c3393df``.
+
+The ability to page through results implies that the items are sorted in a
+consistent fashion in each request, even if that order is nothing more than the
+order the items were added to the dataset. If the order of the results changes
+between requests, the returned pages will not have a meaningful relation to
+each other.
+
+A similar consideration would be how to handle the situation when the item
+whose ID is the ``marker`` value is deleted in between requests. In that event,
+the response should start with the next item logically. The definition of
+"logical" is necessarily fuzzy, and will depend on how the data is sorted.
+There may be some cases, however, where it is not reasonable to try to
+determine what the next logical item would be. In those cases, a **400 Bad
+Request** response should be returned, with a clear explanation in the error
+message that the requested marker value does not exist.
+
+It is also helpful to users if services generate pagination links and include
+them in the :ref:`links` portion of the response body. Providing the following
+link types will make pagination navigation easier:
+
+- first
+- prev
+- self
+- next
+- last
+
+It is important to note that unless the data being paged is static, these links
+cannot be guaranteed to be accurate. For example, if some items are deleted,
+the ``prev`` link might contain some items from the current result.
+
+For example, a response to::
+
+  GET /app/items?limit=30&marker=752b0b9997f24be49e5a1d89d1c53279
+
+Would look more akin to::
+
+
+  {
+    "items": [
+      {
+        "id": "719aae5f70db4364850f6198ea874aa6",
+        "foo": "bar",
+        "baz": "quux",
+        "size": 9
+      },
+      ...
+      {
+        "id": "08ec231f6d9a43dda97d4b950c3393df",
+        "foo": "buzz",
+        "baz": "honk",
+        "size": 6
+      }
+    ],
+    "links": [
+        {
+            "rel": "self",
+            "href": "http://example.com/app/items?limit=30&marker=752b0b9997f24be49e5a1d89d1c53279",
+        },
+        {
+            "rel": "first",
+            "href": "http://example.com/app/items?limit=30",
+        },
+        {
+            "rel": "prev",
+            "href": "http://example.com/app/items?limit=30&marker=eff79f5b4f8743caa1f775846302c1d5",
+        },
+        {
+            "rel": "next",
+            "href": "http://example.com/app/items?limit=30&marker=08ec231f6d9a43dda97d4b950c3393df",
+        },
+        {
+            "rel": "last",
+            "href": "http://example.com/app/items?limit=30&marker=6835afb7ea29491bb2722c6c43f1f070",
+        }
+    ]
+  }
+
+Alternatively, if services are not including JSON `Hyper-Schema`_ links in
+their responses they can consider using the ``Link`` header as defined in
+:rfc:`5988` and :rfc:`6903`.
+
+When using links, the links that are included change based on which page the
+user requested. For example, if the user has requested the first page, then it
+still makes sense to include ``first``, ``self``, ``next``, and ``last`` but
+not ``prev``. Likewise if it is the last page, then including ``next`` is
+optional but the rest (``first``, ``prev``, ``self``, ``last``) is sensible.
+
+It should also be emphasized that calculating the ``last`` link can be costly.
+In many cases, such link calculation would require querying the entire dataset.
+Therefore implementing the ``last`` link is optional.
 
 Filtering
 ---------
@@ -243,3 +371,7 @@ and 'sort_dir' query string parameters, see [1]. As these projects adopt these
 guidelines, they should deprecate the older parameters appropriately.
 
 [1]: https://wiki.openstack.org/wiki/API_Working_Group/Current_Design/Sorting
+
+
+.. _Hyper-Schema:
+    http://json-schema.org/latest/json-schema-hypermedia.html
