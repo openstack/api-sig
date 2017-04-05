@@ -134,8 +134,7 @@ The Version API for each service should return the minimum and maximum
 versions. These values are used by the client to discover the supported API
 versions.
 
-A version response would look as follows. This example is from the compute API
-provided by Nova::
+A version response would look as follows::
 
     GET /
     {
