@@ -50,6 +50,8 @@ For example, you cannot request the feature which was introduced at
 microversion 2.100 without backwards incompatible changes which were
 introduced in microversion 2.99 and earlier.
 
+.. _microversion-client-interaction:
+
 Client Interaction
 ------------------
 
