@@ -10,6 +10,8 @@ Microversions enables the ability to introduce API changes while being able
 to allow clients to discover those changes. According to negotiations with
 servers, clients adjust their behavior to work with server correctly.
 
+.. _versioning:
+
 Versioning
 ----------
 
@@ -42,6 +44,9 @@ the supporting range for each API call on the same server. The minimum version
 can be increased when supporting old clients is too great a burden.
 Increasing the minimum version means breaking the old clients, this happens
 very rarely also.
+
+Services expose information about their minimum and maximum supported
+microversion range as part of :ref:`version-discovery`.
 
 Each version includes all the changes since minimum version was introduced.
 It is not possible to request the feature introduced at microversion X.Y
@@ -128,91 +133,6 @@ and not just the body and query parameters. See
           previous forms.
 
 .. _microversion-parse: https://pypi.org/project/microversion_parse
-
-Version Discovery
------------------
-
-The Version API for each service should return the minimum and maximum
-versions. These values are used by the client to discover the supported API
-versions. If a service ever decides to raise the minimum version that will be
-supported, it should also return the next minimum version, as well as a date
-until which the current minimum version is guaranteed to be supported. If there
-are no plans to change the minimum microversion, the next minimum version and
-support date should be omitted.
-
-A version response for a service that is planning on raising its minimum
-supported version would look as follows::
-
-    GET /
-    {
-         "versions": [
-            {
-                "id": "v2.1",
-                "links": [
-                      {
-                        "href": "http://localhost:8774/v2/",
-                        "rel": "self"
-                    }
-                ],
-                "status": "CURRENT",
-                "max_version": "2.42",
-                "min_version": "2.1",
-                "next_min_version": "2.13",
-                "not_before": "2019-12-31"
-            },
-       ]
-    }
-
-.. note:: The ``links`` conform to the :ref:`links` guideline.
-
-"max_version" is the maximum version supported; "min_version" is the minimum
-version supported; "next_min_version" is the planned next minimum version; and
-"not_before" is the date (in ISO YYYY-MM-DD format) before which the minimum
-will not change. Note that this doesn't require that the minimum be raised on
-that date; that can happen any time afterwards. It is there to give operators a
-sense of how quickly they need to change their tooling to support it.
-
-If there is no planned change to the minimum version, the response can omit the
-'next_min_version' and 'not_before' values. Such a response would look like::
-
-    GET /
-    {
-         "versions": [
-            {
-                "id": "v2.1",
-                "links": [
-                      {
-                        "href": "http://localhost:8774/v2/",
-                        "rel": "self"
-                    }
-                ],
-                "status": "CURRENT",
-                "max_version": "2.42",
-                "min_version": "2.1",
-            },
-       ]
-    }
-
-While it is typical for there to be a single API for a given service, it is
-also sometimes useful to be able to offer more than one version of a given API.
-Common examples of this are when an older version is still made available in
-order to support clients that have not yet upgraded to the current version, or
-when a new API version is being tested before it is released. To distinguish
-these different APIs for the same service, the `status` value is used. The
-following values can be returned for status:
-
-============  =======
-Status        Meaning
-============  =======
-CURRENT       The newest API that is currently being developed and improved.
-              Unless you need to support old code, use this API.
-SUPPORTED     An older version of the API. No new features will be added to
-              this version, but any bugs discovered in the code may be fixed.
-DEPRECATED    This API will be removed in the foreseeable future. You should
-              start planning on using alternatives.
-EXPERIMENTAL  This API is under development ('alpha'), and you can expect it to
-              change or even be removed.
-============  =======
 
 When the requested version is out of range for the server, the server returns
 status code **406 Not Acceptable** along with a response body.

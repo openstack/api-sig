@@ -693,10 +693,11 @@ becomes:
   }
 
 * If the document has a key named ``version``, (even if you just created it)
-  grab the ``href`` for the link where ``rel`` is ``self`` link. If the
-  ``href`` ends with with a version string of the form "v[0-9]+(\.[0-9]*)?$",
-  pop that element from the end of the endpoint and add an entry to the
-  ``links`` list with a ``rel`` of ``collection`` and the resulting endpoint.
+  look for a ``collection`` link in the links list. If one does not exist,
+  grab the ``href`` from the ``self`` link. If the ``self`` link ends with a
+  version string of the form "v[0-9]+(\.[0-9]+)?$", pop that version string
+  from the end of the endpoint and add a ``collection`` entry to the ``links``
+  list with the resulting endpoint.
 
 For example:
 

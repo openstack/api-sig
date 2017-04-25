@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://specs.openstack.org/openstack/api-wg/_downloads/unversioned-discovery-schema.json#",
+  "type": "object",
+  "required": ["versions"],
+  "additionalProperties": false,
+  "properties": {
+    "versions": {
+      "type": "array",
+      "items": {
+        "$ref": "version-information-schema.json#"
+      }
+    }
+  }
+}
