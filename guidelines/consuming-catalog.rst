@@ -39,7 +39,10 @@ There is one piece of information that is absolutely required that the
 user know:
 
 service-type
-  The generic name of the service, such as `compute` or `network`.
+  The official name of the service, such as ``compute``, ``image`` or
+  ``block-storage`` as listed in the `OpenStack Service Types Authority`_.
+  Required. It is impossible for a user to consume service discovery without
+  knowing what service they want to discover.
 
 The user may also wish to express an alteration to the general algorithm:
 
@@ -110,6 +113,24 @@ document.
 
 Discovery Algorithm
 ===================
+
+Services should be registered in the ``{service-catalog}`` using their
+``{service-type}`` from the `OpenStack Service Types Authority`_. However,
+for historical reasons there are some services that have old service types
+found in the wild. To facilitate moving forward with the correct
+``{service-type}`` names, but also support existing users and installations,
+the `OpenStack Service Types Authority`_ contains a list of historical
+aliases for such services.
+
+.. note:: It is assumed that clients have a copy of the data published in
+          the OpenStack Service Types Authority. A following spec describes
+          the publication of that data, but it's important to note that in
+          order to completely be able to support the process in this document,
+          a client will either need to have a local copy of the data or to
+          fetch it from the well-known URL from the next spec and potentially
+          cache it. It is recommended that client libraries handle consumption
+          of the historical data for their users, but also allow some mechanism
+          for the user to provide more up to date data if necessary.
 
 The basic process is:
 
@@ -247,8 +268,8 @@ V2 Catalog Objects:
 
 The algorithm is:
 
-#. Find the objects in the ``{service-catalog}`` where ``type`` matches
-   ``{service-type}``.
+#. Find the objects in the ``{service-catalog}`` that match the requested
+   ``{service-type}``. (see `Match Candidate Entries`_)
 
 #. If ``{service-name}`` was given and the objects remaining have a ``name``
    field, keep only the ones where ``name`` matches ``{service-name}``.
@@ -292,15 +313,14 @@ If there are no remaining endpoints, return an error that there are no
 endpoints matching ``{region_name}``, preferrably including the list of
 regions that were found.
 
-The remaining ``{candidate-endpoints}`` match the request.
+#. From the set of remaining candidate endpoints, find the ones that best
+   matches the requested ``{service-type}``.
+   (see `Find Endpoint Matching Best Service Type`_)
 
-If there is more than one of them, select the ones that match the highest
-priority ``{interface}``.
-
-If there is more than one of them, return the first, but emit a warning to the
-user that more than one endpoint was left. If ``{be-strict}`` has been
-requested, return an error instead with information about each of the endpoints
-left in the list.
+The remaining ``{candidate-endpoints}`` match the request. If there is more
+than one of them, use the first, but emit a warning to the user that more
+than one endpoint was left. If ``{be-strict}`` has been requested, return an
+error instead with information about each of the endpoints left in the list.
 
 .. note:: It would be more correct to throw an error if there is more than one
           endpoint left, but the keystoneauth library returns the first and
@@ -312,3 +332,194 @@ left in the list.
 #. If v2, the ``{catalog-endpoint}`` is the value of ``{interface}URL``.
 
 #. If v3, the ``{catalog-endpoint}`` is the value of ``url``.
+
+Match Candidate Entries
+-----------------------
+
+For every entry in the catalog:
+
+#. If the entry's type matches the requested ``{service-type}``, it is a
+   candidate.
+
+#. If the requested type is an official type from the
+   `OpenStack Service Types Authority`_ that has aliases and one of the aliases
+   matches the entry's type, it is a candidate.
+
+#. If the requested type is an alias of an official type from the
+   `OpenStack Service Types Authority`_ and the entry's type matches the
+   official type, it is a candidate.
+
+.. note:: Requesting one alias and finding a different alias is not supported
+          at this point because most aliases carry implied information about
+          major versions as well. A subsequent spec adds the process for
+          version discovery at which point it can be safe to attempt to return
+          an endpoint listed under an alias different than what was requested.
+
+Find Endpoint Matching Best Service Type
+----------------------------------------
+
+Given a list of candidate endpoints that have matched the other criteria:
+
+#. Check the list of candidate endpoints to see if one of them matches the
+   requested ``{service-type}``. If any are an exact match,
+   `Find Endpoint Matching Best Interface`_.
+
+#. If the requested ``{service-type}`` is an official type in the
+   `OpenStack Service Types Authority`_ that has aliases, check each alias
+   in order of preference as listed in the Authority to see if it has a
+   matching endpoint from the candidate endpoints. For all endpoints that
+   match the first alias with matching endpoints,
+   `Find Endpoint Matching Best Interface`_.
+
+#. If the requested ``{service-type}`` is an alias of an official type in the
+   `OpenStack Service Types Authority`_ and any endpoints match the official
+   type, `Find Endpoint Matching Best Interface`_.
+
+Find Endpoint Matching Best Interface
+-------------------------------------
+
+Given a list of candidate endpoints that have matched the other criteria:
+
+#. In order of preference of ``{interface}`` list, return all endpoints that
+   match the first ``{interface}`` with matching endpoints.
+
+For example, given the following catalog:
+
+.. code-block:: json
+
+  {
+    "token": {
+      "catalog": [
+          {
+              "endpoints": [
+                  {
+                      "interface": "public",
+                      "region": "RegionOne",
+                      "url": "https://block-storage.example.com/v3"
+                  }
+              ],
+              "id": "4363ae44bdf34a3981fde3b823cb9aa3",
+              "type": "volumev3",
+              "name": "cinder"
+          },
+          {
+              "endpoints": [
+                  {
+                      "interface": "public",
+                      "region": "RegionOne",
+                      "url": "https://block-storage.example.com/v2"
+                  }
+              ],
+              "id": "4363ae44bdf34a3981fde3b823cb9aa2",
+              "type": "volumev2",
+              "name": "cinder"
+          }
+      ],
+  }
+
+Then the following:
+
+::
+
+  service_type = 'block-storage'
+  # block-storage is not found, get list of aliases
+  # volumev3 is found, return it
+
+  service_type = 'volumev2'
+  # volumev2 not an official type in authority, but is in catalog
+  # return volumev2 entry
+
+  service_type = 'volume'
+  # volume not in authority or catalog
+  # volume is an alias of block-storage
+  # block-storage is not found. Return error.
+
+Given the following catalog:
+
+.. code-block:: json
+
+  {
+    "token": {
+      "catalog": [
+          {
+              "endpoints": [
+                  {
+                      "interface": "public",
+                      "region": "RegionOne",
+                      "url": "https://block-storage.example.com"
+                  }
+              ],
+              "id": "4363ae44bdf34a3981fde3b823cb9aa3",
+              "type": "block-storage",
+              "name": "cinder"
+          }
+      ],
+  }
+
+Then the following:
+
+::
+
+  service_type = 'block-storage'
+  # block-storage is found, return it
+
+  service_type = 'volumev2'
+  # volumev2 not in authority, is an alias for block-storage
+  # block-storage is in the catalog, return it
+
+Given the following catalog:
+
+.. code-block:: json
+
+  {
+    "token": {
+      "catalog": [
+          {
+              "endpoints": [
+                  {
+                      "interface": "public",
+                      "region": "RegionOne",
+                      "url": "https://block-storage.example.com"
+                  }
+              ],
+              "id": "4363ae44bdf34a3981fde3b823cb9aa3",
+              "type": "block-storage",
+              "name": "cinder"
+          },
+          {
+              "endpoints": [
+                  {
+                      "interface": "public",
+                      "region": "RegionOne",
+                      "url": "https://block-storage.example.com/v2"
+                  },
+                  {
+                      "interface": "interal",
+                      "region": "RegionOne",
+                      "url": "https://block-storage.example.int/v2"
+                  }
+              ],
+              "id": "4363ae44bdf34a3981fde3b823cb9aa2",
+              "type": "volumev2",
+              "name": "cinder"
+          }
+      ],
+  }
+
+Then the following:
+
+::
+
+  service_type = 'block-storage'
+  interface = ['internal', 'public']
+  # block-storage is found
+  # block-storage does not have internal, but has public
+  # return block-storage public
+
+  service_type = 'volumev2'
+  interface = ['internal', 'public']
+  # volumev2 not an official type in authority, but is in catalog
+  # volumev2 has an internal interface
+  # return volumev2 internal entry
+
+.. _OpenStack Service Types Authority: http://git.openstack.org/cgit/openstack/service-types-authority/
