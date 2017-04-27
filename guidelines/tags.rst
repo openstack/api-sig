@@ -182,7 +182,7 @@ Response::
     Location: http://example.com:8774/servers/1234567890/tags/qux
     <no body>
 
-To check if a tag exists or not, the client should send a GET request to the
+To check if a tag exists or not, the client should send a HEAD request to the
 individual tag URL. If the tag exists, the server responds with a status code
 204 and no response body. If the tag does not exist, the server responds with
 a status code 404.

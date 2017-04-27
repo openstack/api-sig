@@ -257,6 +257,10 @@ More generally, CRUD models the four basic functions of persistent
 storage. An HTTP API is not solely a proxy for persistent storage.
 It can provide access to such storage, but it can do much more.
 
+Please note that while HEAD is recommended for checking for the existence of a
+resource, the corresponding GET should always be implemented too, and should
+return an identical response with the addition of a body, if applicable.
+
 **TODO**: HEAD is weird in a bunch of our wsgi frameworks and you
 don't have access to it. Figure out if there is anything useful
 there.
