@@ -3,146 +3,163 @@
     {
       "project": "Barbican",
       "name": "Douglas Mendizábal",
+      "email": "douglas.mendizabal@rackspace.com",
       "nick": "redrobot"
     },
     {
       "project": "Ceilometer",
       "name": "Chris Dent",
+      "email": "cdent+os@anticedent.org",
       "nick": "cdent"
     },
     {
       "project": "Cinder",
       "name": "Scott DAngelo",
+      "email": "scott.dangelo@gmail.com",
       "nick": "scottda"
     },
     {
       "project": "Congress",
       "name": "Masahito Muroi",
+      "email": "muroi.masahito@lab.ntt.co.jp",
       "nick": "masahito"
     },
     {
       "project": "Designate",
       "name": "",
+      "email": "",
       "nick": ""
     },
     {
       "project": "Glance",
-      "name": "Stuart McLaren",
-      "nick": "mclaren"
-    },
-    {
-      "project": "Glance",
       "name": "Nikhil Komawar",
+      "email": "nik.komawar@gmail.com",
       "nick": "nikhil_k"
     },
     {
       "project": "Heat",
       "name": "Rico Lin",
+      "email": "rico.lin.guanyu@gmail.com",
       "nick": "ricolin"
     },
     {
       "project": "Horizon",
       "name": "Cindy Lu",
+      "email": "clu@us.ibm.com",
       "nick": "clu_"
     },
     {
       "project": "Ironic",
       "name": "Vladyslav Drok",
+      "email": "vdrok@mirantis.com",
       "nick": "vdrok"
     },
     {
       "project": "Keystone",
       "name": "David Stanek",
+      "email": "dstanek@dstanek.com",
       "nick": "dstanek"
     },
     {
       "project": "MagnetoDB",
       "name": "Ilya Sviridov",
+      "email": "sviridov.ilya@gmail.com",
       "nick": "isviridov"
     },
     {
       "project": "Magnum",
       "name": "Eli Qiao",
+      "email": "liyong.qiao@intel.com",
       "nick": "eliqiao"
     },
     {
       "project": "Magnum",
       "name": "Hua Wang",
+      "email": "wanghua.humble@gmail.com",
       "nick": "wanghua"
     },
     {
       "project": "Manila",
-      "name": "Alex Meade",
-      "nick": "ameade"
-    },
-    {
-      "project": "Manila",
       "name": "Goutham Pacha Ravi",
+      "email": "Goutham.PachaRavi@netapp.com",
       "nick": "gouthamr"
     },
     {
       "project": "Mistral",
       "name": "Renat Akhmerov",
+      "email": "renat.akhmerov@gmail.com",
       "nick": "rakhmerov"
     },
     {
       "project": "Murano",
       "name": "Nikolay Starodubtsev",
+      "email": "nstarodubstev@mirantis.com",
       "nick": "Nikolay_St"
     },
     {
       "project": "Neutron",
       "name": "Akihiro Motoki",
       "nick": "amotoki"
+      "email": "amotoki@gmail.com",
     },
     {
       "project": "Nova",
       "name": "Matthew Gilliard",
+      "email": "matthew.gilliard@gmail.com",
       "nick": "gilliard"
     },
     {
       "project": "Nova",
       "name": "Alex Xu",
+      "email": "soulxu@gmail.com",
       "nick": "alex_xu"
     },
     {
       "project": "Rally",
       "name": "",
+      "email": "",
       "nick": ""
     },
     {
       "project": "Sahara",
       "name": "Michael McCune",
+      "email": "msm@redhat.com",
       "nick": "elmiko"
     },
     {
       "project": "Senlin",
       "name": "Qiming Teng",
+      "email": "tengqim@linux.vnet.ibm.com",
       "nick": "Qiming"
     },
     {
       "project": "Swift",
       "name": "John Dickinson",
+      "email": "me@not.mn",
       "nick": "notmyname"
     },
     {
       "project": "Trove",
       "name": "Peter Stachowski",
+      "email": "peter@tesora.com",
       "nick": "peterstac"
     },
     {
       "project": "Trove",
       "name": "Amrith Kumar",
+      "email": "amrith.kumar@gmail.com",
       "nick": "amrith"
     },
     {
       "project": "Tripleo",
       "name": "",
+      "email": "",
       "nick": ""
     },
     {
       "project": "Zaqar",
       "name": "Fei Long Wang",
+      "email": "feilong@catalyst.net.nz",
       "nick": "flwang"
     }
   ]
