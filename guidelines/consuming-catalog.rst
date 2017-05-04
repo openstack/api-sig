@@ -120,17 +120,17 @@ for historical reasons there are some services that have old service types
 found in the wild. To facilitate moving forward with the correct
 ``{service-type}`` names, but also support existing users and installations,
 the `OpenStack Service Types Authority`_ contains a list of historical
-aliases for such services.
+aliases for such services. (see `Consuming Service Types Authority`_ for
+information on the data itself.
 
-.. note:: It is assumed that clients have a copy of the data published in
-          the OpenStack Service Types Authority. A following spec describes
-          the publication of that data, but it's important to note that in
-          order to completely be able to support the process in this document,
-          a client will either need to have a local copy of the data or to
-          fetch it from the well-known URL from the next spec and potentially
-          cache it. It is recommended that client libraries handle consumption
-          of the historical data for their users, but also allow some mechanism
-          for the user to provide more up to date data if necessary.
+Clients will need a copy of the data published in the
+`OpenStack Service Types Authority`_ to be able to complete the full Discovery
+Algorithm. A client library could either keep a local copy or fetch the data
+from https://service-types.openstack.org/service-types.json and potentially
+cache it. It is recommended that client libraries handle consumption of the
+historical data for their users but also allow some mechanism for the user to
+provide a more up to date verison of the data if necessary.  See
+`Consuming Service Types Authority`_ for information on how to fetch the data.
 
 The basic process is:
 
@@ -522,4 +522,44 @@ Then the following:
   # volumev2 has an internal interface
   # return volumev2 internal entry
 
-.. _OpenStack Service Types Authority: http://git.openstack.org/cgit/openstack/service-types-authority/
+Consuming Service Types Authority
+=================================
+
+The `OpenStack Service Types Authority`_ is data about official service type
+names and historical service type names commonly in use from before there was
+an official list. It is made available to allow libraries and other client
+API consumers to be able to provide a consistent interface based on the
+official list but still support existing names. Providing this support is
+highly recommended, but is ultimately optional. The first step in the matching
+process is always to return direct matches between the catalog and the user
+request, so the existing consumption models from before the existence of the
+authority should always work.
+
+In order to consume the information in the `OpenStack Service Types Authority`_
+it is important to know a few things:
+
+#. The data is maintained in YAML format in git. This is the ultimately
+   authoritative source code for the list.
+
+#. The data is published in JSON format at
+   https://service-types.openstack.org/service-types.json and has a JSONSchema
+   at https://service-types.openstack.org/service-types-schema.json.
+
+#. The published data contains a version which is date based in
+   `ISO Date Time Format`_, a sha which contains the git sha of the
+   commit the published data was built from, and pre-built forward and reverse
+   mappings between official types and aliases.
+
+#. The JSON file is served with ETag support and should be considered highly
+   cacheable.
+
+#. The current version of the JSON file should always be the preferred files to
+   use.
+
+#. The JSON file is similar to timezone data. It should not be considered
+   versioned such that stable releases of distros should provide a
+   frozen version of it. Distro packages should instead update for all
+   active releases when a new version of the file is published.
+
+.. _OpenStack Service Types Authority: https://git.openstack.org/cgit/openstack/service-types-authority/
+.. _ISO Date Time Format: https://tools.ietf.org/html/rfc3339#section-5.6
