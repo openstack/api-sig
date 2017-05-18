@@ -88,8 +88,12 @@ class TestTitles(testtools.TestCase):
     def test_template(self):
         files = glob.glob("guidelines/*")
         for file in files:
-            self.assertTrue(file.endswith(".rst") or file.endswith(".json"),
-                    "guideline files must use 'rst' or 'json' extension.")
+            if file.endswith('~'):
+                continue
+            self.assertTrue(
+                file.endswith(".rst") or file.endswith(".json"),
+                "guideline file must use 'rst' or 'json'"
+                "extension: {file}".format(file=file))
             with open(file) as f:
                 data = f.read()
 
