@@ -91,7 +91,7 @@ General Advice on URI Design
         {
             "name": "beta",
             "type": "jackdaw"
-        }
+        }]
     }
 
     GET /birds/alpha
