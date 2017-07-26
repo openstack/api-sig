@@ -6,7 +6,7 @@ API Discoverability
 This topic document serves to provide guidance on how to have a public REST
 API expose the URIs and resources to end users in a machine-readable way.
 
-See also the topic document on :ref:`compatibility`.
+See also the topic document on :ref:`consuming-catalog`.
 
 Guidance
 --------
