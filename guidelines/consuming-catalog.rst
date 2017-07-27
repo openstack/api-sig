@@ -47,7 +47,7 @@ service-type
 The user may also wish to express an alteration to the general algorithm:
 
 be-strict
-  Forgo leniant backwards compatibility concessions and be more strict in
+  Forgo lenient backwards compatibility concessions and be more strict in
   input and output validation.
 
 There are several optional pieces of information that the user might know,
@@ -68,10 +68,10 @@ region-name
           by default would be preferred.
 
 interface
-  Which API interface, such as ``public``, ``internal`` or ``admin`` that
+  Which API interface, such as ``public``, ``internal``, or ``admin``
   the user wants to use. A user can also request a list of interfaces they find
   acceptable in the order of their preference, such as
-  ``['internal', 'public']`` (Optional, defaults to ``public``)
+  ``['internal', 'public']`` (Optional, defaults to ``public``.)
 
 service-name
   Arbitrary name given to the service by the deployer. Optional.
@@ -81,19 +81,19 @@ service-name
           discouraged. However, the Consumer has no way to otherwise mitigate
           the situation if their Deployer has provided them with a catalog
           where a ``service-name`` must be used, so ``service-name`` must be
-          accepted as input. If ``{be-strict}`` has been requested, a user
+          accepted as input. If ``{be-strict}`` has been requested,
           supplying ``{service-name}`` should be an error.
 
 service-id
   Unique identifier for an endpoint in the catalog. Optional.
 
 .. note:: On clouds with well-formed catalogs ``service-id`` should never be
-          needed. If ``{be-strict}`` has been requested, a user supplying
+          needed. If ``{be-strict}`` has been requested, supplying
           ``{service-id}`` should be an error.
 
 endpoint-override
-  An endpoint for the service that the user has procurred from some other
-  source. (Optional, defaults to omitted)
+  An endpoint for the service that the user has procured from some other
+  source. (Optional, defaults to omitted.)
 
 At the end of the discovery process, the user should know the
 ``{service-endpoint}``, which is the endpoint to use as the root of the
@@ -120,7 +120,7 @@ for historical reasons there are some services that have old service types
 found in the wild. To facilitate moving forward with the correct
 ``{service-type}`` names, but also support existing users and installations,
 the `OpenStack Service Types Authority`_ contains a list of historical
-aliases for such services. (see `Consuming Service Types Authority`_ for
+aliases for such services. See `Consuming Service Types Authority`_ for
 information on the data itself.
 
 Clients will need a copy of the data published in the
@@ -142,7 +142,7 @@ The basic process is:
 
 #. Retrieve ``{catalog-endpoint}`` from the ``{service-catalog}`` given
    some combination of ``{service-type}``, ``{interface}``, ``{service-name}``,
-   ``{region-name}`` and ``{service-id}``. (see :ref:`endpoint-from-catalog`)
+   ``{region-name}`` and ``{service-id}``. (See :ref:`endpoint-from-catalog`.)
 
 .. _endpoint-from-catalog:
 
@@ -269,7 +269,7 @@ V2 Catalog Objects:
 The algorithm is:
 
 #. Find the objects in the ``{service-catalog}`` that match the requested
-   ``{service-type}``. (see `Match Candidate Entries`_)
+   ``{service-type}``. (See `Match Candidate Entries`_.)
 
 #. If ``{service-name}`` was given and the objects remaining have a ``name``
    field, keep only the ones where ``name`` matches ``{service-name}``.
@@ -315,19 +315,19 @@ regions that were found.
 
 #. From the set of remaining candidate endpoints, find the ones that best
    matches the requested ``{service-type}``.
-   (see `Find Endpoint Matching Best Service Type`_)
+   (See `Find Endpoint Matching Best Service Type`_.)
 
 The remaining ``{candidate-endpoints}`` match the request. If there is more
 than one of them, use the first, but emit a warning to the user that more
 than one endpoint was left. If ``{be-strict}`` has been requested, return an
 error instead with information about each of the endpoints left in the list.
 
-.. note:: It would be more correct to throw an error if there is more than one
+.. note:: It would be more correct to raise an error if there is more than one
           endpoint left, but the keystoneauth library returns the first and
           changing that would break a large number of existing users. If one
           is writing a completely new library from scratch, or a new major
-          version where behavior change is acceptable, defaulting to throwing
-          an error here if there is more than one version left is preferred.
+          version where behavior change is acceptable, it is preferable to
+          raise an error here if there is more than one endpoint left.
 
 #. If v2, the ``{catalog-endpoint}`` is the value of ``{interface}URL``.
 
@@ -494,7 +494,7 @@ Given the following catalog:
                       "url": "https://block-storage.example.com/v2"
                   },
                   {
-                      "interface": "interal",
+                      "interface": "internal",
                       "region": "RegionOne",
                       "url": "https://block-storage.example.int/v2"
                   }
@@ -543,7 +543,7 @@ it is important to know a few things:
 
 #. The data is published in JSON format at
    https://service-types.openstack.org/service-types.json and has a JSONSchema
-   at https://service-types.openstack.org/service-types-schema.json.
+   at https://service-types.openstack.org/published-schema.json.
 
 #. The published data contains a version which is date based in
    `ISO Date Time Format`_, a sha which contains the git sha of the
@@ -553,7 +553,7 @@ it is important to know a few things:
 #. The JSON file is served with ETag support and should be considered highly
    cacheable.
 
-#. The current version of the JSON file should always be the preferred files to
+#. The current version of the JSON file should always be the preferred file to
    use.
 
 #. The JSON file is similar to timezone data. It should not be considered
