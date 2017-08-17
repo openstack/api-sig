@@ -41,8 +41,7 @@ http://docs.openstack.org/infra/manual/developers.html
 Guidelines
 ----------
 
-The following topics have separate doc pages that contain guidance on a
-specific issue:
+The following topics are related to the working group and its processes:
 
 .. toctree::
    :glob:
@@ -51,4 +50,13 @@ specific issue:
    process
    template
    liaisons
+   guidedreview
+
+These topics are the API guidance approved by the OpenStack community
+and published by the working group:
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
    guidelines/*
