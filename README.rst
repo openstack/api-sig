@@ -2,12 +2,12 @@
 README
 ======
 
-Openstack API Working Group documents
--------------------------------------
+Openstack API Special Interest Group documents
+----------------------------------------------
 
-This repository contains documents from the OpenStack API working group,
-including guidelines and proposed rules concerning API consistency, naming
-conventions, and best practice recommendations. The published
+This repository contains documents from the OpenStack API Special Interest
+Group, including guidelines and proposed rules concerning API consistency,
+naming conventions, and best practice recommendations. The published
 information can be found at `specs.openstack.org
 <http://specs.openstack.org/openstack/api-wg/>`_.
 

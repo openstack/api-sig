@@ -67,11 +67,11 @@ makes:
 * Change in APIs is an inevitable consequence of evolving projects with a
   diversity of contributors. In the unlikely event that such change is not
   a consideration then these guidelines need not apply.
-* The overarching goal of the API Working Group is to encourage consistency
-  in the APIs of all the services. The proposed solutions for enabling
-  compatibility and stability are guidance towards achieving consistency.
-  The assertions about when a change will violate interoperability are true
-  independent of any given solution.
+* The overarching goal of the API Special Interest Group is to encourage
+  consistency in the APIs of all the services. The proposed solutions for
+  enabling compatibility and stability are guidance towards achieving
+  consistency.  The assertions about when a change will violate
+  interoperability are true independent of any given solution.
 
 Any service which does not support versioning and wishes to achieve
 interoperability SHOULD do two things:
@@ -86,7 +86,7 @@ interoperability SHOULD do two things:
           adhering to these guidelines for interoperability. The project itself
           must make the decisions on how to evolve their API. If this leads to
           conflicts with other projects within the OpenStack ecosystem, the
-          role of the API-WG is solely to help clarify the guidelines and
+          role of the API-SIG is solely to help clarify the guidelines and
           provide advice on how to minimize the impact of changes. The
           Technical Committee is the body which provides adjudication and
           mediation when consensus cannot be reached.

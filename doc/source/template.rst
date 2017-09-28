@@ -47,7 +47,7 @@ introduction if applicable.
 Guidance
 ********
 
-The actual guidance that the API working group would like to provide.
+The actual guidance that the API Special Interest Group would like to provide.
 
 * The guideline should provide a clear recitation of the actions to be
   taken by implementors.

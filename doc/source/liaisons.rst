@@ -4,22 +4,22 @@ Cross-Project Liaisons
 Description
 -----------
 
-The API Working Group seeks API subject matter experts for each project to
-communicate plans for API updates, review API guidelines with their project's
-view in mind, and review the API Working Group guidelines as they are drafted.
-The Cross-Project Liaison (CPL) should be familiar with the project's REST API
-design and future planning for changes to it.
+The API Special Interest Group seeks API subject matter experts for each
+project to communicate plans for API updates, review API guidelines with their
+project's view in mind, and review the API Special Interest Group guidelines as
+they are drafted.  The Cross-Project Liaison (CPL) should be familiar with the
+project's REST API design and future planning for changes to it.
 
 * The liaison should be the PTL or whomever they delegate to be their
   representative
-* The liaison is the first line of contact for the API Working Group team
-  members
+* The liaison is the first line of contact for the API Special Interest Group
+  team members
 * The liaison may further delegate work to other subject matter experts
-* The liaison should be aware of and engaged in the API Working Group
+* The liaison should be aware of and engaged in the API Special Interest Group
   `Communication channels
   <https://wiki.openstack.org/wiki/API_Working_Group#Communication>`_
 * The Nova team has been very explicit about how they will liaise with the
-  API Working Group, see the `Responsibilities of Liaisons <https://wiki.openstack.org/wiki/Nova/APIWGLiaisons>`_
+  API Special Interest Group; see the `Responsibilities of Liaisons <https://wiki.openstack.org/wiki/Nova/APIWGLiaisons>`_
 
 Tooling
 -------

@@ -11,11 +11,11 @@ logger = logging.getLogger(__name__)
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Add the cross-project liaisons as reviewers " \
-                    "on an API working group review.")
+                    "on an API Special Interest Group review.")
     parser.add_argument('--debug', help="Print debugging information",
                         action='store_true')
     parser.add_argument("username", help="Your Gerrit username", type=str)
-    parser.add_argument("review", help="An API WG Gerrit review", type=str)
+    parser.add_argument("review", help="An API-SIG Gerrit review", type=str)
     args = parser.parse_args()
 
     return (args.debug, args.username, args.review)
