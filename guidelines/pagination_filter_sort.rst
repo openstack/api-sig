@@ -66,6 +66,9 @@ determine what the next logical item would be. In those cases, a **400 Bad
 Request** response should be returned, with a clear explanation in the error
 message that the requested marker value does not exist.
 
+Pagination Links
+~~~~~~~~~~~~~~~~
+
 It is also helpful to users if services generate pagination links and include
 them in the :ref:`links` portion of the response body. Providing the following
 link types will make pagination navigation easier:
@@ -127,10 +130,6 @@ Would look more akin to::
     ]
   }
 
-Alternatively, if services are not including JSON `Hyper-Schema`_ links in
-their responses they can consider using the ``Link`` header as defined in
-:rfc:`5988` and :rfc:`6903`.
-
 When using links, the links that are included change based on which page the
 user requested. For example, if the user has requested the first page, then it
 still makes sense to include ``first``, ``self``, ``next``, and ``last`` but
@@ -140,6 +139,27 @@ optional but the rest (``first``, ``prev``, ``self``, ``last``) is sensible.
 It should also be emphasized that calculating the ``last`` link can be costly.
 In many cases, such link calculation would require querying the entire dataset.
 Therefore implementing the ``last`` link is optional.
+
+Link Header Alternative
+~~~~~~~~~~~~~~~~~~~~~~~
+
+If services are not including JSON `Hyper-Schema`_ links in their responses,
+or if they cannot include them for some reasons, they should return pagination
+links in the ``Link`` header as defined in :rfc:`5988` and :rfc:`6903`.
+
+.. note::
+
+  Adding the ``Link`` to responses should not be considered an API contract
+  change that needs a either a minor version bump or a microversion. Because
+  of the nature of HTTP headers and the relationship of REST services with
+  proxies, load balancers and API gateways, HTTP clients must already handle
+  the existence of additional headers that may not be relevant.
+
+  Consuming pagination is a fundamental operation that is frequently not done
+  on a per-service basis. Requiring a user to undergo a microversion
+  negotiation or minor version is extra per-service work that is both difficult
+  and which carries no value. Users can simply check to see if a Link header
+  exists, and if one does, they can consume the data in it.
 
 Filtering
 ---------
