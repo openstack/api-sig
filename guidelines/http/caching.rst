@@ -37,3 +37,39 @@ Thinking carefully about cache semantics when implementing anything
 in the OpenStack API is critical to the API being compatible with the
 vast range of runtimes, programming languages, and proxy servers (open
 and commercial) that exist in the wild.
+
+Cache Headers in Practice
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Given what is said above ("caching [...] is to be expected in all cases"),
+services MUST provide appropriate ``Cache-Control`` headers to avoid bugs like
+those described in
+`1747935 <https://bugs.launchpad.net/openstack-api-wg/+bug/1747935>`_ wherein
+an intermediary proxy caches a response indefinitely, despite a change in the
+underlying resource.
+
+To avoid this problem, at a minimum, responses defined above as "cacheable"
+that do not otherwise control caching MUST include a header of::
+
+    Cache-Control: no-cache
+
+Despite how it sounds, ``no-cache`` (defined by :rfc:`7234#section-5.2.1.4`)
+means only use a cached resource if it can be validated against the origin
+server. However, in the absence of headers which can be sent back to the
+server in an ``If-Modified-Since`` or ``If-None-Match`` conditional request,
+``no-cache`` means no caching will happen. For more on validation see
+:rfc:`7234#section-4.3`.
+
+This means that at least all responses to ``GET`` requests that return a
+``200`` status need the header, unless explicit caching requirements are
+expressed in the response.
+
+MDN provides a good overview of the `Cache-Control header
+<https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control>`_ and
+provides some guidance on ways to indicate that caching is desired. If caching
+is expected, in addition to the ``Cache-Control`` header, headers such as
+``ETag`` or ``Last-Modified`` must also be present.
+
+Describing how to do cache validation and conditional request handling is out
+of scope for these guidelines because the requirements will be different from
+service to service.
