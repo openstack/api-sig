@@ -275,7 +275,7 @@ and returning an empty page is a poor API when the user explicitly requested a
 number of results.
 
 Time based filtering queries
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To support filtering based on time intervals such as mentioned in the `ISO8601
 intervals wikipedia page`_, it should be possible to express the following
