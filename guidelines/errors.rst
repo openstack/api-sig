@@ -12,6 +12,13 @@ consistency of the error messages returned to them will play a large part
 in how quickly they can learn the API, how they can be more effective with
 the API, and how much they enjoy using the API.
 
+This document describes an emerging standard within OpenStack for providing
+structured error responses that can be consistently processed and include
+coding that will eventually allow errors to be searched for on the web and in
+documentation using the value of the ``code`` field. Such codes help to
+distinguish the causes of different errors in response to the same HTTP method
+and URI, even when the same HTTP status is returned.
+
 Errors JSON Schema
 ------------------
 

@@ -17,7 +17,7 @@
           },
           "code": {
             "type": "string",
-            "description": "A service-specific error code. The general form of the code is service-name.error-code. service-name MUST be the service name as defined by the service field of https://git.openstack.org/cgit/openstack/governance/tree/reference/projects.yaml where spaces within the service name are replaced by '-' and if the word 'service' appears in the name, it MUST be omitted. error-code is defined by service project team and MUST only consist of lowercase alpha, numeric, '.', and '-' characters."
+            "description": "A service-specific error code. The general form of the code is service-type.error-code. service-type MUST be the service type as defined by the service types authority at http://specs.openstack.org/openstack/service-types-authority. error-code is defined by service project team and MUST only consist of lowercase alpha, numeric, '.', and '-' characters."
           },
           "status": {
             "type": "integer",
