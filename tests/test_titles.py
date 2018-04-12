@@ -11,6 +11,7 @@
 # under the License.
 
 import glob
+import os
 import re
 
 import docutils.core
@@ -89,6 +90,8 @@ class TestTitles(testtools.TestCase):
         files = glob.glob("guidelines/*")
         for file in files:
             if file.endswith('~'):
+                continue
+            if os.path.isdir(file):
                 continue
             self.assertTrue(
                 file.endswith(".rst") or file.endswith(".json"),
