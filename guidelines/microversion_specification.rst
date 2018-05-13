@@ -125,7 +125,7 @@ and not just the body and query parameters. See
           headers, both the new style described in this document and
           previous forms.
 
-.. _microversion-parse: https://pypi.python.org/pypi/microversion_parse
+.. _microversion-parse: https://pypi.org/project/microversion_parse
 
 Version Discovery
 -----------------
