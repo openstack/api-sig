@@ -129,7 +129,7 @@ Algorithm. A client library could either keep a local copy or fetch the data
 from https://service-types.openstack.org/service-types.json and potentially
 cache it. It is recommended that client libraries handle consumption of the
 historical data for their users but also allow some mechanism for the user to
-provide a more up to date verison of the data if necessary.  See
+provide a more up to date version of the data if necessary.  See
 `Consuming Service Types Authority`_ for information on how to fetch the data.
 
 The basic process is:
