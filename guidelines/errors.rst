@@ -19,6 +19,12 @@ documentation using the value of the ``code`` field. Such codes help to
 distinguish the causes of different errors in response to the same HTTP method
 and URI, even when the same HTTP status is returned.
 
+.. note:: Services choosing to add these structured error responses are advised
+   that doing so is not considered a backwards incompatible change and are
+   encouraged to add them without needing to version the service. However,
+   when a ``code`` is added to a specific response, subsequent change to that
+   code, on that response, is an incompatbile change.
+
 Errors JSON Schema
 ------------------
 
@@ -42,4 +48,26 @@ Errors JSON Example
 Errors Documentation
 --------------------
 
-TODO(sdague): Expand on the vision behind Errors Documentation
+The intention of the ``code`` is twofold:
+
+* To provide a convenient and memorable phrase that a human can use when
+  communicating with other humans about an error they've experienced, or use
+  when searching documentation or their favorite search engine for references
+  to the error.
+
+* To act as flow control in client code where the same HTTP status code may be
+  used to indicate multiple conditions. A common case is when a
+  ``409 Conflict`` may indicate several different ways in which the desired
+  state cannot be accommodated and the handling of the conflict should differ.
+
+To satisfy both of these requirements the strings used for the error codes need
+to be self-describing and human-readable while also distinct from one another.
+Avoiding abbreviation is recommended.
+
+As an example, consider a service that provides a URI, ``/servers/{uuid}``.
+There are at least two different ways that a ``404 Not Found`` response may
+happen when making a ``GET`` request against that URI. One is that no server
+having ``{uuid}`` currently exists. The other is that the URI has been entered
+incorrectly (e.g., ``/server/{uuid}``). These conditions should result in
+different codes. Two possible codes for these cases are
+``compute.server.not_found`` and ``compute.uri.not_found``, respectively.
