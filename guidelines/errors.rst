@@ -37,7 +37,10 @@ Errors JSON Example
 
 .. note:: This example is completely contrived. This is not how Orchestration
    or Compute responds with errors. It merely illustrates how a service might
-   chain together errors.
+   chain together errors. The example hrefs in the ``links`` are examples
+   only, but demonstrate that a service should be responsible for publishing
+   and maintaining the documentation associated with the error codes the
+   service produces.
 
 Errors Documentation
 --------------------
