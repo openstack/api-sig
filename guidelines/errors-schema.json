@@ -17,7 +17,8 @@
           },
           "code": {
             "type": "string",
-            "description": "A service-specific error code. The general form of the code is service-type.error-code. service-type MUST be the service type as defined by the service types authority at http://specs.openstack.org/openstack/service-types-authority. error-code is defined by service project team and MUST only consist of lowercase alpha, numeric, '.', and '-' characters."
+            "pattern": "^[a-z0-9._-]+$",
+            "description": "A service-specific error code. The general form of the code is service-type.error-code. service-type MUST be the service type as defined by the service types authority at http://specs.openstack.org/openstack/service-types-authority. error-code is defined by service project team and MUST only consist of lowercase alpha, numeric, '.', '_', and '-' characters."
           },
           "status": {
             "type": "integer",
