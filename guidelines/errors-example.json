@@ -9,7 +9,7 @@
       "links": [
         {
           "rel": "help",
-          "href": "TODO(sdague): example href"
+          "href": "https://developer.openstack.org/api-ref/orchestration/errors/orchestration.create-failed"
         }
       ]
     },
@@ -22,7 +22,7 @@
       "links": [
         {
           "rel": "help",
-          "href": "TODO(sdague): example href"
+          "href": "https://developer.openstack.org/api-ref/compute/errors/compute.scheduler.no-valid-host-found"
         }
       ]
     }
