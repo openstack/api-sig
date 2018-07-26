@@ -2,7 +2,7 @@
   "errors": [
     {
       "request_id": "1dc92f06-8ede-4fb4-8921-b507601fb59d",
-      "code": "orchestration.create-failed",
+      "code": "orchestration.create_failed",
       "status": 418,
       "title": "The Stack could not be created",
       "detail": "The Stack could not be created because of error(s) in other parts of the system.",
