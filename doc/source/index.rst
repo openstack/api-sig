@@ -20,10 +20,10 @@ APIs including guidelines and proposed rules concerning API consistency, naming
 conventions, and best practice recommendations.
 
 If you would like to connect with the API Special Interest Group, visit the
-wiki at: https://wiki.openstack.org/wiki/API_Working_Group
+wiki at: https://wiki.openstack.org/wiki/API_Special_Interest_Group
 
 If you are interested in contributing to this document, the git repository is
-available at: http://git.openstack.org/cgit/openstack/api-wg/
+available at: http://git.openstack.org/cgit/openstack/api-sig/
 
 OpenStack code and review submission processes are described at:
 http://docs.openstack.org/infra/manual/developers.html
