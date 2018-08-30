@@ -40,7 +40,9 @@ http://docs.openstack.org/infra/manual/developers.html
 .. note::
     Where this guidance is incomplete or ambiguous, refer to the HTTP
     RFCs—:rfc:`7230`, :rfc:`7231`, :rfc:`7232`, :rfc:`7233`, :rfc:`7234`, and
-    :rfc:`7235`—as the ultimate authority.
+    :rfc:`7235`—as the ultimate authority. For advice on effectively using
+    HTTP in APIs see `Building Protocols with
+    HTTP <https://tools.ietf.org/id/draft-ietf-httpbis-bcp56bis-06.html>`_.
 
 Guidelines
 ----------
