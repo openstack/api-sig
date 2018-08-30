@@ -35,8 +35,12 @@ http://docs.openstack.org/infra/manual/developers.html
     representations have their place in the OpenStack ecosystem, they present
     such a diversity of challenges and edge cases, especially with large and/or
     binary request and response bodies, that it is impossible to provide
-    guidance that is complete. Where there is doubt refer to the HTTP RFCs,
-    7230 through 7235, as the ultimate authority.
+    guidance that is complete.
+
+.. note::
+    Where this guidance is incomplete or ambiguous, refer to the HTTP
+    RFCs—:rfc:`7230`, :rfc:`7231`, :rfc:`7232`, :rfc:`7233`, :rfc:`7234`, and
+    :rfc:`7235`—as the ultimate authority.
 
 Guidelines
 ----------
