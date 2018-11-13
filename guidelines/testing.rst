@@ -14,7 +14,7 @@ Goals
 -----
 
 There are many aspects to testing and at least as many stakeholders in
-their creation and use. Tests can operate at at least three levels:
+their creation and use. Tests can operate at least three levels:
 
 1. To validate or assist in the creation of new functionality or changes
    to existing code.
