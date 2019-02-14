@@ -305,7 +305,7 @@ finished::
     ]
   }
 
-.. _Ironic Inspector: http://docs.openstack.org/developer/ironic-inspector/
+.. _Ironic Inspector: https://docs.openstack.org/ironic-inspector/latest/
 
 To obtain items that finished between 15:30 and 16:00 UTC Today use an
 interval with two boundaries::
