@@ -158,8 +158,8 @@ top-level ``token`` object. Such as:
 .. code-block:: json
 
   {
-    'token': {
-      'catalog': {}
+    "token": {
+      "catalog": {}
     }
   }
 
@@ -169,8 +169,8 @@ top-level ``access`` object. Such as:
 .. code-block:: json
 
   {
-    'access': {
-      'serviceCatalog': {}
+    "access": {
+      "serviceCatalog": {}
     }
   }
 
