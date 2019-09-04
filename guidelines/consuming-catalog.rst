@@ -561,5 +561,5 @@ it is important to know a few things:
    frozen version of it. Distro packages should instead update for all
    active releases when a new version of the file is published.
 
-.. _OpenStack Service Types Authority: https://git.openstack.org/cgit/openstack/service-types-authority/
+.. _OpenStack Service Types Authority: https://opendev.org/openstack/service-types-authority/
 .. _ISO Date Time Format: https://tools.ietf.org/html/rfc3339#section-5.6
