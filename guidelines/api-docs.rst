@@ -81,5 +81,5 @@ nova repo, for example, running `tox -e api-ref` builds Sphinx-based API
 reference documentation locally.
 
 For publishing OpenAPI-based reference, refer to
-https://review.openstack.org/#/c/286659/ as an example that can be used in the
+https://review.opendev.org/#/c/286659/ as an example that can be used in the
 project repo.
