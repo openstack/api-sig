@@ -4,6 +4,8 @@
     check:
       jobs:
         - openstack-tox-py37
+        - openstack-tox-linters
     gate:
       jobs:
         - openstack-tox-py37
+        - openstack-tox-linters

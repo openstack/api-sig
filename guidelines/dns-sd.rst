@@ -81,7 +81,7 @@ discover the ``auth_url`` to use.
 
 I issue a DNS request to retrieve ``SRV`` and ``TXT`` records::
 
-    $ nslookup -query=any "identity._openstack._tcp.mystack.example.com"                                                                                                                        master
+    $ nslookup -query=any "identity._openstack._tcp.mystack.example.com"
     identity._openstack._tcp.mystack.example.com    service = 0 0 443 os.mystack.example.com
     identity._openstack._tcp.mystack.example.com    text = "txtvers=1" "path=/"
 
