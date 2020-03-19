@@ -10,7 +10,6 @@
 # serve to show the default.
 
 import datetime
-import subprocess
 import sys
 import os
 
@@ -34,7 +33,7 @@ extensions = ['sphinx.ext.autodoc',
              ]
 
 # Feed configuration for yasfb
-feed_base_url = 'http://specs.openstack.org/openstack/api-wg'
+feed_base_url = 'https://specs.openstack.org/openstack/api-sig'
 feed_author = 'OpenStack API Special Interest Group'
 
 todo_include_todos = True
@@ -124,16 +123,6 @@ html_theme = 'openstackdocs'
 # pixels large.
 #html_favicon = None
 
-# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
-# using the given strftime format.
-git_cmd = ["git", "log", "--pretty=format:'%ad, commit %h'", "--date=local",
-           "-n1"]
-try:
-    html_last_updated_fmt = subprocess.check_output(git_cmd).decode('utf-8')
-except Exception:
-    warnings.warn('Cannot get last updated time from git repository. '
-                  'Not setting "html_last_updated_fmt".')
-
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
 #html_use_smartypants = True
@@ -172,7 +161,7 @@ html_use_index = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'API-WGdoc'
+htmlhelp_basename = 'API-Sig-Doc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
