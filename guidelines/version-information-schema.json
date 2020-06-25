@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://specs.openstack.org/openstack/api-wg/_downloads/version-information-schema.json#",
+    "type": "object",
+    "additionalProperties":false,
+    "required":[
+        "status",
+        "id",
+        "links"
+    ],
+    "properties": {
+        "status": {
+            "description": "Support and lifecycle status of the versioned endpoint.",
+            "type": "string",
+            "enum": [
+                "CURRENT",
+                "SUPPORTED",
+                "EXPERIMENTAL",
+                "DEPRECATED"
+            ]
+        },
+        "id": {
+            "description": "The major API version.",
+            "type": "string",
+            "pattern": "^v[0-9]{1,2}.?[0-9]{0,2}$"
+        },
+        "links": {
+            "$ref": "http://json-schema.org/draft-04/links#"
+        },
+        "max_version": {
+            "desciption": "The maximum microversion available",
+            "type": "string",
+            "pattern": "^[0-9]{1,2}.[0-9]{1,2}$"
+        },
+        "min_version": {
+            "desciption": "The minimum microversion available",
+            "type": "string",
+            "pattern": "^[0-9]{1,2}.[0-9]{1,2}$"
+        }
+    }
+}

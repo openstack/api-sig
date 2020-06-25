@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://specs.openstack.org/openstack/api-wg/_downloads/versioned-discovery-schema.json#",
+    "type": "object",
+    "required": ["version"],
+    "additionalProperties": false,
+    "properties": {
+        "version": {
+            "$ref": "version-information-schema.json#"
+        }
+    }
+}
