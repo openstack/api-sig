@@ -8,6 +8,8 @@ API expose the URIs and resources to end users in a machine-readable way.
 
 See also the topic document on :ref:`consuming-catalog`.
 
+See also the topic document on :doc:`consuming-catalog/version-discovery`.
+
 Guidance
 --------
 
