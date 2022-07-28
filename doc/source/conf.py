@@ -51,8 +51,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'API Special Interest Group'
-copyright = u'%s, OpenStack API Special Interest Group Team' % datetime.date.today().year
+project = 'API Special Interest Group'
+copyright = '%s, OpenStack API Special Interest Group Team' % datetime.date.today().year
 
 # openstackdocstheme options
 openstackdocs_repo_name = 'openstack/api-sig'
@@ -184,8 +184,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'api-sig.tex', u'API Special Interest Group',
-   u'OpenStack API Special Interest Group Team', 'manual'),
+  ('index', 'api-sig.tex', 'API Special Interest Group',
+   'OpenStack API Special Interest Group Team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -214,8 +214,8 @@ latex_documents = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'api-sig', u'API Special Interest Group',
-   u'OpenStack API Special Interest Group Team', 'nova-specs', 'Guidelines for OpenStack APIs.',
+  ('index', 'api-sig', 'API Special Interest Group',
+   'OpenStack API Special Interest Group Team', 'nova-specs', 'Guidelines for OpenStack APIs.',
    'Miscellaneous'),
 ]
 
@@ -232,10 +232,10 @@ texinfo_documents = [
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'API Special Interest Group'
-epub_author = u'OpenStack API Special Interest Group Team'
-epub_publisher = u'OpenStack API Special Interest Group Team'
-epub_copyright = u'2014, OpenStack API Special Interest Group Team'
+epub_title = 'API Special Interest Group'
+epub_author = 'OpenStack API Special Interest Group Team'
+epub_publisher = 'OpenStack API Special Interest Group Team'
+epub_copyright = '2014, OpenStack API Special Interest Group Team'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
